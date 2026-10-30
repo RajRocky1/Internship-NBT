@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>MediCare Hospital | Specialist Care & Appointments</title>
+  <meta name="description"
+    content="Explore MediCare Hospital's demonstration website for medical departments, sample doctors, outpatient services and appointment requests.">
+  <meta name="keywords"
+    content="hospital in Mysore, multispeciality hospital, healthcare services in Mysore, specialist doctors, cardiology, orthopedics, neurology, pediatrics, general medicine, doctor appointment booking,Heart specialist in Mysore, cardiology services,Orthopedic doctor in Mysore,bone specialist,Neurologist in Mysore, neurological care,Child specialist in Mysore, pediatric care,,General physician in Mysore, general healthcare,Best hospital in Mysore,Multispeciality hospital in Mysore,Healthcare services in Mysore,Online doctor appointment Mysore">
+  <meta name="theme-color" content="#123B58">
+  <meta name="color-scheme" content="light dark">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="MediCare Hospital | Expert Care, Personal Attention">
+  <meta property="og:description"
+    content="Explore hospital departments, services and a demonstration appointment experience.">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23123B58'/%3E%3Cpath d='M25 12h14v13h13v14H39v13H25V39H12V25h13z' fill='white'/%3E%3Ccircle cx='49' cy='15' r='5' fill='%2324B8B0'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://images.unsplash.com">
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var theme = null;
+
+      try {
+        theme = localStorage.getItem("theme");
+      } catch (error) { }
+
+      if (theme !== "light" && theme !== "dark") {
+        theme = window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      }
+
+      root.setAttribute("data-theme", theme);
+      root.classList.add("js");
+    })();
+  </script>
+
+  <link rel="stylesheet" href="Components/style.css">
+  <script src="Components/script.js" defer></script>
+</head>
+
+<body id="top">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="reading-progress" id="reading-progress" aria-hidden="true">
+    <span></span>
+  </div>
+
+  <svg class="svg-library" aria-hidden="true" focusable="false">
+    <symbol id="logo-mark" viewBox="0 0 64 64">
+      <rect width="64" height="64" rx="18" fill="#123B58" />
+      <path d="M25 12h14v13h13v14H39v13H25V39H12V25h13z" fill="#fff" />
+      <circle cx="49" cy="15" r="5" fill="#24B8B0" />
+    </symbol>
+
+    <symbol id="icon-heart" viewBox="0 0 24 24">
+      <path
+        d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z" />
+      <path d="M3 12h5l2-4 3.5 8 2-4H21" />
+    </symbol>
+
+    <symbol id="icon-bone" viewBox="0 0 24 24">
+      <path
+        d="M7.4 7.4a3 3 0 1 1 4.2-4.2l5.2 5.2a3 3 0 1 1 4.2 4.2l-8.8 8.8A3 3 0 1 1 8 17.2l-5.2-5.2A3 3 0 1 1 7 7.8z" />
+    </symbol>
+
+    <symbol id="icon-brain" viewBox="0 0 24 24">
+      <path d="M12 4a4 4 0 0 0-7.5 2A4.5 4.5 0 0 0 4 14a4 4 0 0 0 5 6h3z" />
+      <path
+        d="M12 4a4 4 0 0 1 7.5 2A4.5 4.5 0 0 1 20 14a4 4 0 0 1-5 6h-3zM8 8c2 0 3 1 3 3M7 15c2 0 4 1 4 3m5-10c-2 0-3 1-3 3m5 1c-2 0-4 1-4 3" />
+    </symbol>
+
+    <symbol id="icon-child" viewBox="0 0 24 24">
+      <circle cx="12" cy="7" r="4" />
+      <path d="M5 21v-2a7 7 0 0 1 14 0v2M9 7h.01M15 7h.01M10 9c1.2 1 2.8 1 4 0" />
+    </symbol>
+
+    <symbol id="icon-stethoscope" viewBox="0 0 24 24">
+      <path d="M6 3v5a4 4 0 0 0 8 0V3M4 3h4M12 3h4M10 12v2a5 5 0 0 0 10 0v-2" />
+      <circle cx="20" cy="10" r="2" />
+    </symbol>
+
+    <symbol id="icon-lab" viewBox="0 0 24 24">
+      <path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3M8 15h8" />
+    </symbol>
+
+    <symbol id="icon-shield" viewBox="0 0 24 24">
+      <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z" />
+      <path d="m9 12 2 2 4-4" />
+    </symbol>
+
+    <symbol id="icon-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 2" />
+    </symbol>
+
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <path d="M5 12h14M13 5l7 7-7 7" />
+    </symbol>
+
+    <symbol id="icon-chevron" viewBox="0 0 24 24">
+      <path d="m6 9 6 6 6-6" />
+    </symbol>
+
+    <symbol id="icon-moon" viewBox="0 0 24 24">
+      <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+    </symbol>
+
+    <symbol id="icon-sun" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+    </symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="MediCare Hospital home">
+        <svg class="brand-mark" aria-hidden="true">
+          <use href="#logo-mark" />
+        </svg>
+        <span class="brand-copy">
+          <strong>Medi<span>Care</span></strong>
+          <span>HOSPITAL &amp; HEALTHCARE</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation"
+        aria-label="Open main menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="primary-nav" id="primary-navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#departments">Departments</a></li>
+          <li><a href="#doctors">Our doctors</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a class="nav-cta" href="#appointment">Book a visit <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </nav>
+
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme">
+        <svg class="icon-moon" aria-hidden="true">
+          <use href="#icon-moon" />
+        </svg>
+        <svg class="icon-sun" aria-hidden="true">
+          <use href="#icon-sun" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero hero-video" id="home" aria-labelledby="hero-title">
+      <video class="hero-background-video" id="hero-background-video" autoplay muted loop playsinline preload="metadata"
+        aria-hidden="true" tabindex="-1">
+        <source src="Assets/videos/HeroBG.mp4" type="video/mp4">
+      </video>
+
+      <div class="hero-video-overlay" aria-hidden="true"></div>
+      <div class="hero-video-glow" aria-hidden="true"></div>
+
+      <div class="hero-center-content">
+        <p class="hero-video-eyebrow">
+          <span class="hero-video-dot"></span>
+          CARE THAT PUTS YOU FIRST
+        </p>
+
+        <h1 id="hero-title">
+          Better care.<br>
+          <span>Brighter tomorrows.</span>
+        </h1>
+
+        <p class="hero-description">
+          Thoughtful healthcare begins with listening. Explore our medical
+          departments, meet our care team and discover a simpler way to
+          request an appointment.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#appointment">
+            Request an appointment
+            <svg aria-hidden="true">
+              <use href="#icon-arrow" />
+            </svg>
+          </a>
+
+          <a class="button hero-video-secondary" href="#departments">
+            Explore departments
+            <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+
+        <div class="hero-video-caption">
+          <span class="hero-video-caption-line"></span>
+          COMPASSIONATE CARE · EVERY STEP OF THE WAY
+        </div>
+      </div>
+
+      <a class="scroll-cue hero-video-scroll" href="#about">
+        <span></span>
+        Scroll to discover
+      </a>
+    </section>
+
+    <section class="intro-strip" aria-label="Our care approach">
+      <div class="container intro-strip-inner">
+        <span>CARE WITH COMPASSION</span>
+        <i aria-hidden="true"></i>
+        <span>CLARITY AT EVERY STEP</span>
+        <i aria-hidden="true"></i>
+        <span>YOUR HEALTH, OUR FOCUS</span>
+      </div>
+    </section>
+
+    <section class="section section-about" id="about" aria-labelledby="about-title">
+      <div class="container about-layout">
+        <div class="about-visual reveal" data-reveal="left">
+          <div class="about-photo about-video-frame">
+            <video class="about-background-video" id="about-background-video" autoplay muted loop playsinline
+              preload="metadata" aria-hidden="true" tabindex="-1">
+              <source src="Assets/videos/about.mp4" type="video/mp4">
+              Your browser does not support HTML video.
+            </video>
+
+            <div class="about-video-overlay" aria-hidden="true"></div>
+
+            <div class="about-video-caption">
+              <span class="about-video-caption-line"></span>
+              COMPASSIONATE CARE · EVERY STEP OF THE WAY
+            </div>
+          </div>
+
+          <div class="about-stat">
+            <span class="stat-symbol" aria-hidden="true">+</span>
+            <div>
+              <strong>One caring team</strong>
+              <small>Connected around you</small>
+            </div>
+          </div>
+
+          <div class="about-decor" aria-hidden="true"></div>
+        </div>
+
+        <div class="about-copy">
+          <p class="eyebrow">
+            <span class="eyebrow-line"></span>
+            ABOUT MEDICARE
+          </p>
+
+          <h2 class="section-title reveal" data-reveal="up" id="about-title">
+            Healthcare should feel <span>human.</span>
+          </h2>
+
+          <p class="section-lead reveal" data-reveal="up">
+            Good care is more than a consultation. It is being heard, knowing
+            your options and feeling supported throughout your healthcare journey.
+          </p>
+
+          <div class="about-points">
+            <article class="about-point reveal" data-reveal="up">
+              <span class="point-number">01</span>
+              <div>
+                <h3>Care that listens</h3>
+                <p>
+                  Clear conversations that help people understand their options
+                  and next steps.
+                </p>
+              </div>
+            </article>
+
+            <article class="about-point reveal" data-reveal="up" style="--reveal-delay: 100ms">
+              <span class="point-number">02</span>
+              <div>
+                <h3>Connected services</h3>
+                <p>
+                  A straightforward way to explore departments and related
+                  healthcare services.
+                </p>
+              </div>
+            </article>
+
+            <article class="about-point reveal" data-reveal="up" style="--reveal-delay: 200ms">
+              <span class="point-number">03</span>
+              <div>
+                <h3>Support beyond today</h3>
+                <p>
+                  Encouraging preventive care, follow-up questions and informed
+                  decisions.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section section-departments" id="departments" aria-labelledby="departments-title">
+      <div class="container">
+        <div class="section-heading reveal" data-reveal="up">
+          <div>
+            <p class="eyebrow">
+              <span class="eyebrow-line"></span>
+              SPECIALTY CARE
+            </p>
+            <h2 class="section-title" id="departments-title">
+              Explore our <span>departments.</span>
+            </h2>
+          </div>
+
+          <p class="section-lead">
+            Find a care area that fits your needs and begin a demo appointment request in just a few steps.
+          </p>
+        </div>
+
+        <div class="department-grid">
+          <article class="department-card department-cardiology tilt-card reveal" data-reveal="up">
+            <div class="department-card-top">
+              <span class="department-icon icon-coral">
+                <svg aria-hidden="true">
+                  <use href="#icon-heart" />
+                </svg>
+              </span>
+              <span class="card-index">01 / 05</span>
+            </div>
+            <h3>Cardiology</h3>
+            <p>Heart and circulation care, routine assessments and ongoing health management.</p>
+            <button class="text-action dept-link" type="button" data-department="cardiology">
+              Book this department
+              <span class="sr-only">: Cardiology</span>
+              <svg aria-hidden="true">
+                <use href="#icon-arrow" />
+              </svg>
+            </button>
+          </article>
+
+          <article class="department-card department-orthopedics tilt-card reveal" data-reveal="up"
+            style="--reveal-delay:80ms">
+            <div class="department-card-top">
+              <span class="department-icon icon-blue">
+                <svg aria-hidden="true">
+                  <use href="#icon-bone" />
+                </svg>
+              </span>
+              <span class="card-index">02 / 05</span>
+            </div>
+            <h3>Orthopedics</h3>
+            <p>Care for bones, joints and muscles, including assessment and rehabilitation support.</p>
+            <button class="text-action dept-link" type="button" data-department="orthopedics">
+              Book this department
+              <span class="sr-only">: Orthopedics</span>
+              <svg aria-hidden="true">
+                <use href="#icon-arrow" />
+              </svg>
+            </button>
+          </article>
+
+          <article class="department-card department-neurology tilt-card reveal" data-reveal="up"
+            style="--reveal-delay:160ms">
+            <div class="department-card-top">
+              <span class="department-icon icon-violet">
+                <svg aria-hidden="true">
+                  <use href="#icon-brain" />
+                </svg>
+              </span>
+              <span class="card-index">03 / 05</span>
+            </div>
+            <h3>Neurology</h3>
+            <p>Evaluation of concerns involving the brain, nerves and nervous system.</p>
+            <button class="text-action dept-link" type="button" data-department="neurology">
+              Book this department
+              <span class="sr-only">: Neurology</span>
+              <svg aria-hidden="true">
+                <use href="#icon-arrow" />
+              </svg>
+            </button>
+          </article>
+
+          <article class="department-card department-pediatrics tilt-card reveal" data-reveal="up"
+            style="--reveal-delay:240ms">
+            <div class="department-card-top">
+              <span class="department-icon icon-green">
+                <svg aria-hidden="true">
+                  <use href="#icon-child" />
+                </svg>
+              </span>
+              <span class="card-index">04 / 05</span>
+            </div>
+            <h3>Pediatrics</h3>
+            <p>Supportive healthcare for infants, children and teenagers at different stages.</p>
+            <button class="text-action dept-link" type="button" data-department="pediatrics">
+              Book this department
+              <span class="sr-only">: Pediatrics</span>
+              <svg aria-hidden="true">
+                <use href="#icon-arrow" />
+              </svg>
+            </button>
+          </article>
+
+          <article class="department-card department-general tilt-card reveal" data-reveal="up"
+            style="--reveal-delay:320ms">
+            <div class="department-card-top">
+              <span class="department-icon icon-teal">
+                <svg aria-hidden="true">
+                  <use href="#icon-stethoscope" />
+                </svg>
+              </span>
+              <span class="card-index">05 / 05</span>
+            </div>
+            <h3>General Medicine</h3>
+            <p>A first point of contact for everyday health concerns, general assessments and referrals.</p>
+            <button class="text-action dept-link" type="button" data-department="general">
+              Book this department
+              <span class="sr-only">: General Medicine</span>
+              <svg aria-hidden="true">
+                <use href="#icon-arrow" />
+              </svg>
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section section-doctors" id="doctors" aria-labelledby="doctors-title">
+      <div class="container">
+        <div class="section-heading reveal" data-reveal="up">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> YOUR CARE TEAM</p>
+            <h2 class="section-title" id="doctors-title">Meet our sample <span>doctors.</span></h2>
+          </div>
+
+          <p class="section-lead">
+            Explore the demonstration profiles below. All names and profiles on this page are fictional.
+          </p>
+        </div>
+
+        <div class="demo-notice">
+          <svg aria-hidden="true">
+            <use href="#icon-shield" />
+          </svg>
+          <p><strong>Demo profiles:</strong> these are fictional examples, not real clinicians. No medical credentials
+            or availability are being claimed.</p>
+        </div>
+
+        <div class="doctor-grid">
+          <article class="doctor-card tilt-card reveal" data-reveal="up">
+            <div class="doctor-photo">
+              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80"
+                alt="Illustrative portrait for a fictional doctor" loading="lazy" width="600" height="700">
+              <span class="doctor-department">Cardiology</span>
+            </div>
+            <div class="doctor-info">
+              <p class="doctor-kicker">SAMPLE PROFILE</p>
+              <h3>Dr. Meera Anand</h3>
+              <p>Heart health and routine assessments</p>
+              <button class="button button-outline book-doctor" type="button" data-department="cardiology"
+                data-doctor="Dr. Meera Anand">Request a visit<span class="sr-only"> with Dr. Meera Anand</span> <span
+                  aria-hidden="true">↗</span></button>
+            </div>
+          </article>
+
+          <article class="doctor-card tilt-card reveal" data-reveal="up" style="--reveal-delay:100ms">
+            <div class="doctor-photo">
+              <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=600&q=80"
+                alt="Illustrative portrait for a fictional doctor" loading="lazy" width="600" height="700">
+              <span class="doctor-department">Neurology</span>
+            </div>
+            <div class="doctor-info">
+              <p class="doctor-kicker">SAMPLE PROFILE</p>
+              <h3>Dr. Rohan Kapoor</h3>
+              <p>Brain, nerves and spine care</p>
+              <button class="button button-outline book-doctor" type="button" data-department="neurology"
+                data-doctor="Dr. Rohan Kapoor">Request a visit<span class="sr-only"> with Dr. Rohan Kapoor</span> <span
+                  aria-hidden="true">↗</span></button>
+            </div>
+          </article>
+
+          <article class="doctor-card tilt-card reveal" data-reveal="up" style="--reveal-delay:200ms">
+            <div class="doctor-photo">
+              <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=600&q=80"
+                alt="Illustrative portrait for a fictional doctor" loading="lazy" width="600" height="700">
+              <span class="doctor-department">Pediatrics</span>
+            </div>
+            <div class="doctor-info">
+              <p class="doctor-kicker">SAMPLE PROFILE</p>
+              <h3>Dr. Elena Park</h3>
+              <p>Child and adolescent health</p>
+              <button class="button button-outline book-doctor" type="button" data-department="pediatrics"
+                data-doctor="Dr. Elena Park">Request a visit<span class="sr-only"> with Dr. Elena Park</span> <span
+                  aria-hidden="true">↗</span></button>
+            </div>
+          </article>
+
+          <article class="doctor-card tilt-card reveal" data-reveal="up" style="--reveal-delay:300ms">
+            <div class="doctor-photo">
+              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80"
+                alt="Illustrative portrait for a fictional doctor" loading="lazy" width="600" height="700">
+              <span class="doctor-department">Orthopedics</span>
+            </div>
+            <div class="doctor-info">
+              <p class="doctor-kicker">SAMPLE PROFILE</p>
+              <h3>Dr. Arjun Mehta</h3>
+              <p>Bone, joint and muscle care</p>
+              <button class="button button-outline book-doctor" type="button" data-department="orthopedics"
+                data-doctor="Dr. Arjun Mehta">Request a visit<span class="sr-only"> with Dr. Arjun Mehta</span> <span
+                  aria-hidden="true">↗</span></button>
+            </div>
+          </article>
+
+          <article class="doctor-card tilt-card reveal" data-reveal="up" style="--reveal-delay:400ms">
+            <div class="doctor-photo">
+              <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=600&q=80"
+                alt="Illustrative portrait for a fictional doctor" loading="lazy" width="600" height="700">
+              <span class="doctor-department">General Medicine</span>
+            </div>
+            <div class="doctor-info">
+              <p class="doctor-kicker">SAMPLE PROFILE</p>
+              <h3>Dr. Sara Thomas</h3>
+              <p>Everyday health concerns and referrals</p>
+              <button class="button button-outline book-doctor" type="button" data-department="general"
+                data-doctor="Dr. Sara Thomas">Request a visit<span class="sr-only"> with Dr. Sara Thomas</span> <span
+                  aria-hidden="true">↗</span></button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-services" id="services" aria-labelledby="services-title">
+      <div class="container services-layout">
+        <div class="services-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> SUPPORTING YOUR HEALTH</p>
+          <h2 class="section-title reveal" data-reveal="up" id="services-title">More ways to support <span>your
+              wellbeing.</span></h2>
+          <p class="section-lead reveal" data-reveal="up">Explore example services that help people understand care
+            options and prepare for their next step.</p>
+          <a class="button button-primary reveal" data-reveal="up" href="#appointment">Explore appointment options <svg
+              aria-hidden="true">
+              <use href="#icon-arrow" />
+            </svg></a>
+        </div>
+
+        <div class="service-list">
+          <article class="service-row reveal" data-reveal="right">
+            <span class="service-icon"><svg aria-hidden="true">
+                <use href="#icon-stethoscope" />
+              </svg></span>
+            <div>
+              <h3>Outpatient consultations</h3>
+              <p>Explore an appropriate department for non-emergency health concerns.</p>
+            </div>
+            <span class="service-number">01</span>
+          </article>
+
+          <article class="service-row reveal" data-reveal="right" style="--reveal-delay:100ms">
+            <span class="service-icon"><svg aria-hidden="true">
+                <use href="#icon-lab" />
+              </svg></span>
+            <div>
+              <h3>Diagnostic services</h3>
+              <p>Learn about common diagnostic and laboratory service categories.</p>
+            </div>
+            <span class="service-number">02</span>
+          </article>
+
+          <article class="service-row reveal" data-reveal="right" style="--reveal-delay:200ms">
+            <span class="service-icon"><svg aria-hidden="true">
+                <use href="#icon-shield" />
+              </svg></span>
+            <div>
+              <h3>Preventive health</h3>
+              <p>Encourage routine checkups and informed conversations about wellbeing.</p>
+            </div>
+            <span class="service-number">03</span>
+          </article>
+
+          <article class="service-row reveal" data-reveal="right" style="--reveal-delay:300ms">
+            <span class="service-icon"><svg aria-hidden="true">
+                <use href="#icon-clock" />
+              </svg></span>
+            <div>
+              <h3>Follow-up planning</h3>
+              <p>Keep track of questions to discuss with a qualified healthcare professional.</p>
+            </div>
+            <span class="service-number">04</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="appointment-section" id="appointment" aria-labelledby="appointment-title">
+      <div class="appointment-orb appointment-orb-one" aria-hidden="true"></div>
+      <div class="appointment-orb appointment-orb-two" aria-hidden="true"></div>
+
+      <div class="container appointment-layout">
+        <div class="appointment-copy">
+          <p class="eyebrow eyebrow-light"><span class="eyebrow-line"></span> YOUR NEXT STEP</p>
+          <h2 class="section-title reveal" data-reveal="up" id="appointment-title">Let's make your next step
+            <span>simple.</span>
+          </h2>
+          <p class="appointment-lead reveal" data-reveal="up">Choose a department, select your preferences and try the
+            appointment request experience.</p>
+
+          <div class="appointment-benefits">
+            <div><span class="benefit-check" aria-hidden="true">✓</span><span><strong>Clear
+                  choices</strong><small>Departments and sample doctors</small></span></div>
+            <div><span class="benefit-check" aria-hidden="true">✓</span><span><strong>Helpful
+                  validation</strong><small>Guidance when a field needs attention</small></span></div>
+            <div><span class="benefit-check" aria-hidden="true">✓</span><span><strong>Demo
+                  confirmation</strong><small>No data is sent or saved</small></span></div>
+          </div>
+
+          <div class="appointment-note">
+            <svg aria-hidden="true">
+              <use href="#icon-shield" />
+            </svg>
+            <p>This is a front-end demonstration, not a live hospital booking system. Do not enter sensitive medical
+              information.</p>
+          </div>
+        </div>
+
+        <form class="appointment-form" id="appointment-form" novalidate>
+          <div class="form-heading">
+            <span class="form-step">APPOINTMENT REQUEST</span>
+            <h3>Tell us what you need</h3>
+            <p>Fields marked with <span class="required-mark">*</span> are required.</p>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullname">Full name <span class="required-mark">*</span></label>
+              <input id="fullname" name="fullname" type="text" autocomplete="name" maxlength="80" required
+                aria-describedby="error-fullname" placeholder="Your full name">
+              <p class="error" id="error-fullname" aria-live="polite"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone number <span class="required-mark">*</span></label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" required
+                aria-describedby="error-phone" placeholder="+91 98765 43210">
+              <p class="error" id="error-phone" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email address <span class="required-mark">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" maxlength="120" required
+              aria-describedby="error-email" placeholder="you@example.com">
+            <p class="error" id="error-email" aria-live="polite"></p>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="department">Department <span class="required-mark">*</span></label>
+              <div class="select-wrap">
+                <select id="department" name="department" required aria-describedby="error-department">
+                  <option value="">Choose a department</option>
+                  <option value="cardiology">Cardiology</option>
+                  <option value="orthopedics">Orthopedics</option>
+                  <option value="neurology">Neurology</option>
+                  <option value="pediatrics">Pediatrics</option>
+                  <option value="general">General Medicine</option>
+                </select>
+                <svg aria-hidden="true">
+                  <use href="#icon-chevron" />
+                </svg>
+              </div>
+              <p class="error" id="error-department" aria-live="polite"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="doctor">Preferred doctor <span class="optional-label">(optional)</span></label>
+              <div class="select-wrap">
+                <select id="doctor" name="doctor" aria-describedby="error-doctor" disabled>
+                  <option value="">Select a department first</option>
+                </select>
+                <svg aria-hidden="true">
+                  <use href="#icon-chevron" />
+                </svg>
+              </div>
+              <p class="error" id="error-doctor" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="date">Preferred date <span class="required-mark">*</span></label>
+              <input id="date" name="date" type="date" required aria-describedby="error-date">
+              <p class="error" id="error-date" aria-live="polite"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="time">Preferred time <span class="required-mark">*</span></label>
+              <div class="select-wrap">
+                <select id="time" name="time" required aria-describedby="error-time">
+                  <option value="">Choose a time</option>
+                  <option value="Morning (9:00–12:00)">Morning (9:00–12:00)</option>
+                  <option value="Afternoon (12:00–16:00)">Afternoon (12:00–16:00)</option>
+                  <option value="Evening (16:00–19:00)">Evening (16:00–19:00)</option>
+                </select>
+                <svg aria-hidden="true">
+                  <use href="#icon-chevron" />
+                </svg>
+              </div>
+              <p class="error" id="error-time" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Anything else? <span class="optional-label">(optional — do not include sensitive health
+                details)</span></label>
+            <textarea id="message" name="message" rows="3" maxlength="300"
+              placeholder="A short, non-sensitive note"></textarea>
+          </div>
+
+          <div class="form-group consent-group">
+            <label class="consent-label" for="consent">
+              <input id="consent" name="consent" type="checkbox" required aria-describedby="error-consent">
+              <span>I understand this is a demonstration and no appointment will be booked or stored. <span
+                  class="required-mark">*</span></span>
+            </label>
+            <p class="error" id="error-consent" aria-live="polite"></p>
+          </div>
+
+          <p class="request-summary" id="request-summary" aria-live="polite"></p>
+
+          <button class="button button-submit" type="submit">
+            Submit demo request
+            <svg aria-hidden="true">
+              <use href="#icon-arrow" />
+            </svg>
+          </button>
+
+          <p class="form-footnote">Demo only. No information leaves this page.</p>
+          <div class="form-status" role="status" aria-live="polite" tabindex="-1"></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section section-testimonials" id="testimonials" aria-labelledby="testimonials-title">
+      <div class="container">
+        <div class="section-heading reveal" data-reveal="up">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> THE CARE EXPERIENCE</p>
+            <h2 class="section-title" id="testimonials-title">A little more <span>reassurance.</span></h2>
+          </div>
+
+          <p class="section-lead">
+            These sample statements demonstrate how patient feedback could be presented on a real website.
+          </p>
+        </div>
+
+        <div class="testimonial-grid">
+          <figure class="testimonial-card reveal" data-reveal="up">
+            <div class="quote-mark" aria-hidden="true">“</div>
+            <blockquote>The team explained each step clearly and helped me understand what would happen next.
+            </blockquote>
+            <figcaption>
+              <span class="testimonial-avatar">A</span>
+              <span><strong>Sample patient A</strong><small>Fictional testimonial</small></span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial-card reveal" data-reveal="up" style="--reveal-delay:120ms">
+            <div class="quote-mark" aria-hidden="true">“</div>
+            <blockquote>The process felt straightforward, and I knew which questions to ask during my visit.
+            </blockquote>
+            <figcaption>
+              <span class="testimonial-avatar avatar-teal">B</span>
+              <span><strong>Sample patient B</strong><small>Fictional testimonial</small></span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial-card reveal" data-reveal="up" style="--reveal-delay:240ms">
+            <div class="quote-mark" aria-hidden="true">“</div>
+            <blockquote>A calm, clear experience makes it easier to focus on the things that matter.</blockquote>
+            <figcaption>
+              <span class="testimonial-avatar avatar-blue">C</span>
+              <span><strong>Sample patient C</strong><small>Fictional testimonial</small></span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <p class="testimonial-disclaimer">All testimonials above are fictional examples and are not genuine patient
+          reviews.</p>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-layout">
+        <div>
+          <p class="eyebrow eyebrow-light"><span class="eyebrow-line"></span> GET IN TOUCH</p>
+          <h2 class="section-title reveal" data-reveal="up" id="contact-title">We're here to help you <span>find your
+              way.</span></h2>
+          <p class="contact-lead reveal" data-reveal="up">Use the demonstration details below as placeholders. Replace
+            them with verified hospital contact information before any real launch.</p>
+          <a class="button button-light reveal" data-reveal="up" href="#appointment">Request an appointment <svg
+              aria-hidden="true">
+              <use href="#icon-arrow" />
+            </svg></a>
+        </div>
+
+        <div class="contact-details reveal" data-reveal="up">
+          <div class="contact-item">
+            <span class="contact-item-icon" aria-hidden="true">⌖</span>
+            <div><small>LOCATION · DEMO</small><strong>Vivekananda Circle</strong><span>Replace with verified
+                address</span></div>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-item-icon" aria-hidden="true">☎</span>
+            <div><small>PHONE · PLACEHOLDER</small><strong><a
+                  href="tel:+919353652369">9353652369</a></strong><span>Verify before publishing</span></div>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-item-icon" aria-hidden="true">✉</span>
+            <div><small>EMAIL · PLACEHOLDER</small><strong><a
+                  href="mailto:medicarehealth@gmail.com">medicarehealth@gmail.com</a></strong><span>Verify before
+                publishing</span></div>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-item-icon" aria-hidden="true">◷</span>
+            <div><small>AVAILABILITY</small><strong>Demo information only</strong><span>Do not rely on this page for
+                emergency care</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand-column">
+        <a class="brand brand-footer" href="#top" aria-label="MediCare Hospital home">
+          <svg class="brand-mark" aria-hidden="true">
+            <use href="#logo-mark" />
+          </svg>
+          <span class="brand-copy"><strong>MediCare</strong><span>HOSPITAL &amp; HEALTHCARE</span></span>
+        </a>
+
+        <p>Thoughtful healthcare starts with clear information, compassion and the confidence to take the next step.</p>
+        <span class="footer-demo-label">DEMONSTRATION WEBSITE</span>
+      </div>
+
+      <div class="footer-links">
+        <h2>Explore</h2>
+        <a href="#about">About us</a>
+        <a href="#departments">Departments</a>
+        <a href="#doctors">Sample doctors</a>
+        <a href="#services">Services</a>
+      </div>
+
+      <div class="footer-links">
+        <h2>Patient information</h2>
+        <a href="#appointment">Appointment demo</a>
+        <a href="#testimonials">Sample testimonials</a>
+        <a href="#contact">Contact details</a>
+        <a href="#top">Back to top ↑</a>
+      </div>
+
+      <div class="footer-contact">
+        <h2>Our promise</h2>
+        <p>Clear information. Respectful interactions. A better experience from the very first click.</p>
+        <a href="#appointment">Start a demo request <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© <span id="current-year">2026</span> MediCare Hospital. Demo project for educational purposes.</p>
+      <p>Not a live healthcare provider or booking service.</p>
+    </div>
+  </footer>
+
+  <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg aria-hidden="true">
+      <use href="#icon-chevron" />
+    </svg>
+  </a>
+</body>
+
+</html>
