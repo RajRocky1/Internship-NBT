@@ -1,17 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SomShekar B's internship portfolio showcasing projects developed during his internship at Navabharath Technologies, Mysuru.">
+  <meta name="description" content="Internship journey of SomShekar B — three responsive web projects built at Navabharath Technologies, Mysuru: MediCare Hospital, StayNest and DBG Gastro Care.">
   <meta name="theme-color" content="#071426">
 
-  <title>SomShekar B | Internship Portfolio</title>
+  <title>SomShekar B | Internship Portfolio — Navabharath Technologies</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>document.documentElement.classList.add('js');</script>
 
   <style>
     :root {
@@ -29,11 +30,7 @@
       --glow: rgba(8, 124, 255, .22);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html {
       scroll-behavior: smooth;
@@ -50,22 +47,15 @@
       overflow-x: hidden;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
 
     .container {
       width: min(1160px, 90%);
       margin: auto;
     }
 
-    /* NAVBAR */
-
+    /* ============ NAVBAR ============ */
     header {
       position: sticky;
       top: 0;
@@ -116,25 +106,19 @@
 
     .nav-links {
       display: flex;
-      gap: 28px;
+      gap: 26px;
       align-items: center;
       color: var(--muted);
       font-size: 13px;
     }
 
-    .nav-links a {
-      transition: .3s;
-    }
+    .nav-links a { transition: .3s; white-space: nowrap; }
+    .nav-links a:hover { color: var(--cyan); }
 
-    .nav-links a:hover {
-      color: var(--cyan);
-    }
-
-    /* HERO */
-
+    /* ============ HERO ============ */
     .hero {
       position: relative;
-      padding: 85px 0 100px;
+      padding: 85px 0 90px;
       overflow: hidden;
     }
 
@@ -195,13 +179,7 @@
     }
 
     .hero h1 span {
-      background: linear-gradient(
-        100deg,
-        #ffffff,
-        #bfc7d2 35%,
-        #37dfff 75%,
-        #087cff
-      );
+      background: linear-gradient(100deg, #ffffff, #bfc7d2 35%, #37dfff 75%, #087cff);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -255,17 +233,14 @@
       color: var(--cyan);
     }
 
-    /* PERSONAL LOGO */
-
+    /* Personal logo */
     .logo-art {
       position: relative;
       padding: 13px;
       border: 1px solid rgba(191,199,210,.2);
       border-radius: 22px;
       background: linear-gradient(145deg, #172b45, #071426 75%);
-      box-shadow:
-        0 25px 65px rgba(0,0,0,.4),
-        0 0 35px rgba(8,124,255,.12);
+      box-shadow: 0 25px 65px rgba(0,0,0,.4), 0 0 35px rgba(8,124,255,.12);
       overflow: hidden;
     }
 
@@ -296,8 +271,66 @@
       text-transform: uppercase;
     }
 
-    /* SECTION COMMON */
+    /* ============ STAT STRIP (Idea 3) ============ */
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin-top: 60px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--border);
+      box-shadow: 0 20px 50px rgba(0,0,0,.25);
+    }
 
+    .stat {
+      padding: 26px 20px;
+      text-align: center;
+      background: linear-gradient(160deg, #0e2038, #071426);
+    }
+
+    .stat-num {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(30px, 4vw, 42px);
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      color: var(--cyan);
+      line-height: 1;
+    }
+
+    .stat-label {
+      margin-top: 9px;
+      font-size: 10px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* Scroll cue */
+    .scroll-cue {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 42px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .cue-arrow {
+      color: var(--cyan);
+      animation: bob 1.8s ease-in-out infinite;
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(5px); }
+    }
+
+    /* ============ SECTION COMMON ============ */
     .section {
       padding: 80px 0;
       position: relative;
@@ -305,7 +338,7 @@
 
     .section-head {
       text-align: center;
-      max-width: 700px;
+      max-width: 720px;
       margin: 0 auto 45px;
     }
 
@@ -330,8 +363,7 @@
       line-height: 1.8;
     }
 
-    /* INTERNSHIP SECTION */
-
+    /* ============ INTERNSHIP CONTEXT (Idea 6) ============ */
     .internship-panel {
       display: grid;
       grid-template-columns: 1fr 260px;
@@ -349,16 +381,12 @@
     .internship-panel::before {
       content: "";
       position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
+      left: 0; top: 0; bottom: 0;
       width: 3px;
       background: linear-gradient(to bottom, var(--cyan), var(--blue), var(--gold));
     }
 
-    .internship-content {
-      position: relative;
-    }
+    .internship-content { position: relative; }
 
     .internship-panel h3 {
       font-size: 25px;
@@ -372,16 +400,30 @@
       line-height: 1.9;
     }
 
-    .internship-location {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      margin-top: 16px;
-      color: var(--cyan);
-      font-size: 12px;
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px 24px;
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
     }
 
-    /* NBT OFFICIAL LOGO */
+    .meta-item { display: flex; flex-direction: column; gap: 5px; }
+
+    .meta-label {
+      font-size: 9.5px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--cyan);
+      font-weight: 700;
+    }
+
+    .meta-value {
+      font-size: 13px;
+      color: var(--silver);
+      line-height: 1.5;
+    }
 
     .company-logo {
       position: relative;
@@ -413,62 +455,153 @@
       text-transform: uppercase;
     }
 
-    /* PROJECTS */
-
-    .project-grid {
+    /* ============ JOURNEY: TIMELINE + CASE STUDIES (Ideas 1 + 2) ============ */
+    .journey {
       display: grid;
-      grid-template-columns: repeat(3,minmax(0,1fr));
-      gap: 23px;
+      grid-template-columns: 220px 1fr;
+      gap: 60px;
+      align-items: start;
     }
 
-    .project-card {
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
+    .timeline-rail {
+      position: sticky;
+      top: 110px;
+    }
+
+    .rail-list {
+      position: relative;
+    }
+
+    .rail-list::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 24px;
+      bottom: 24px;
+      width: 2px;
+      background: rgba(191,199,210,.15);
+      border-radius: 2px;
+    }
+
+    .rail-fill {
+      position: absolute;
+      left: 6px;
+      top: 24px;
+      width: 2px;
+      height: 0;
+      background: linear-gradient(to bottom, var(--cyan), var(--blue));
+      border-radius: 2px;
+      box-shadow: 0 0 10px rgba(55,223,255,.6);
+      transition: height .15s linear;
+      pointer-events: none;
+    }
+
+    .rail-item {
+      position: relative;
+      display: block;
+      padding: 14px 0 14px 32px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+      transition: color .3s;
+    }
+
+    .rail-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 21px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid rgba(191,199,210,.35);
+      background: var(--bg);
+      box-sizing: border-box;
+      transition: .3s;
+    }
+
+    .rail-item small {
+      display: block;
+      font-size: 9.5px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 3px;
+      transition: .3s;
+    }
+
+    .rail-item:hover { color: var(--silver); }
+    .rail-item:hover small { color: var(--cyan); }
+
+    .rail-item.active { color: var(--cyan); }
+
+    .rail-item.active small { color: var(--cyan); }
+
+    .rail-item.active::before {
+      border-color: var(--cyan);
+      background: var(--cyan);
+      box-shadow: 0 0 14px var(--cyan);
+    }
+
+    /* Case study blocks */
+    .case-study {
+      padding: 32px;
       border: 1px solid var(--border);
-      border-radius: 17px;
-      background: linear-gradient(145deg, #11243b, #081526);
-      transition: transform .4s ease, border-color .4s ease, box-shadow .4s ease;
+      border-radius: 18px;
+      background: linear-gradient(145deg, #0f2138, #081526);
+      margin-bottom: 32px;
+      scroll-margin-top: 110px;
+      position: relative;
     }
 
-    .project-card:hover {
-      transform: translateY(-9px);
-      border-color: rgba(55,223,255,.55);
-      box-shadow:
-        0 20px 50px rgba(0,0,0,.4),
-        0 0 28px rgba(8,124,255,.13);
-    }
+    .case-study:last-child { margin-bottom: 0; }
 
-    .project-visual {
-      height: 180px;
+    .case-visual {
+      height: 220px;
+      border-radius: 12px;
+      margin-bottom: 26px;
       display: grid;
       place-items: center;
       position: relative;
       overflow: hidden;
     }
 
-    .project-visual::before {
+    .case-visual::before {
       content: "";
       position: absolute;
-      width: 165px;
-      height: 165px;
-      border: 1px solid rgba(191,199,210,.18);
+      width: 200px;
+      height: 200px;
+      border: 1px solid rgba(191,199,210,.15);
       border-radius: 50%;
       box-shadow:
-        0 0 0 24px rgba(255,255,255,.025),
-        0 0 0 48px rgba(255,255,255,.015);
+        0 0 0 28px rgba(255,255,255,.025),
+        0 0 0 56px rgba(255,255,255,.015);
     }
 
-    .visual-hospital {
-      background: linear-gradient(135deg, #071d32, #07506c, #09182a);
+    .case-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
     }
 
-    .visual-staynest {
-      background: linear-gradient(135deg, #101d35, #24415f, #071426);
-    }
+    .visual-hospital { background: linear-gradient(135deg, #071d32, #07506c, #09182a); }
+    .visual-staynest { background: linear-gradient(135deg, #101d35, #24415f, #071426); }
+    .visual-gastro { background: linear-gradient(135deg, #091b2c, #07536a, #071426); }
 
-    .visual-gastro {
-      background: linear-gradient(135deg, #091b2c, #07536a, #071426);
+    .case-index {
+      position: absolute;
+      top: 16px;
+      left: 18px;
+      z-index: 1;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,.55);
     }
 
     .visual-icon {
@@ -479,47 +612,95 @@
       transition: .4s;
     }
 
-    .project-card:hover .visual-icon {
-      transform: scale(1.17) rotate(-5deg);
+    .case-study:hover .visual-icon {
+      transform: scale(1.12) rotate(-4deg);
     }
 
-    .project-info {
-      padding: 24px;
+    .case-head {
       display: flex;
-      flex-direction: column;
-      flex: 1;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
     }
 
-    .project-type {
+    .case-phase {
+      font-size: 10.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
       color: var(--cyan);
-      font-size: 10px;
       font-weight: 700;
+    }
+
+    .case-title {
+      margin-top: 8px;
+      font-size: 26px;
+      color: var(--silver);
+      letter-spacing: -.5px;
+    }
+
+    .case-type {
+      font-size: 10px;
       letter-spacing: 1.6px;
       text-transform: uppercase;
-    }
-
-    .project-info h3 {
-      margin: 12px 0;
-      font-size: 22px;
-      color: var(--silver);
-    }
-
-    .project-info p {
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.85;
-      min-height: 95px;
+      padding: 7px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: rgba(255,255,255,.025);
+      white-space: nowrap;
+    }
+
+    .case-body {
+      display: grid;
+      gap: 0;
+    }
+
+    .case-row {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 18px;
+      padding: 14px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .case-row dt {
+      font-size: 10px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--cyan);
+      font-weight: 700;
+      padding-top: 3px;
+    }
+
+    .case-row dd {
+      font-size: 13.5px;
+      line-height: 1.8;
+      color: var(--silver);
+      margin: 0;
+    }
+
+    .case-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
     }
 
     .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin: 20px 0 24px;
+      margin: 0;
     }
 
     .tags span {
-      padding: 7px 10px;
+      padding: 6px 10px;
       border: 1px solid rgba(191,199,210,.13);
       border-radius: 6px;
       color: var(--silver);
@@ -527,12 +708,11 @@
       font-size: 10px;
     }
 
-    .project-link {
-      display: flex;
+    .case-link {
+      display: inline-flex;
       align-items: center;
-      justify-content: space-between;
-      margin-top: auto;
-      padding: 13px 15px;
+      gap: 10px;
+      padding: 12px 18px;
       border-radius: 8px;
       color: #04101c;
       background: linear-gradient(110deg, #dce4ed, #37dfff, #087cff);
@@ -541,46 +721,82 @@
       transition: .3s;
     }
 
-    .project-link:hover {
+    .case-link:hover {
       filter: brightness(1.18);
       box-shadow: 0 0 20px rgba(8,124,255,.25);
+      transform: translateY(-2px);
     }
 
-    .project-link span {
-      font-size: 19px;
+    /* ============ SKILLS MAP (Idea 6) ============ */
+    .skill-map {
+      display: grid;
+      gap: 10px;
+      max-width: 760px;
+      margin: 0 auto;
     }
 
-    /* TECHNOLOGIES */
-
-    .tech-wrap {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 13px;
-    }
-
-    .tech {
-      padding: 12px 18px;
-      border: 1px solid rgba(191,199,210,.16);
-      border-radius: 8px;
-      color: var(--silver);
-      background: linear-gradient(145deg, #132943, #091526);
-      font-size: 12px;
+    .skill-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 22px;
+      align-items: center;
+      padding: 15px 20px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(255,255,255,.02);
       transition: .3s;
     }
 
-    .tech:hover {
-      color: var(--cyan);
-      border-color: var(--cyan);
-      box-shadow: 0 0 16px rgba(8,124,255,.14);
-      transform: translateY(-3px);
+    .skill-row:hover {
+      border-color: rgba(55,223,255,.35);
+      background: rgba(8,124,255,.05);
     }
 
-    /* FOOTER */
+    .skill-name {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 600;
+      color: var(--silver);
+      font-size: 13.5px;
+      letter-spacing: .3px;
+    }
 
+    .skill-used {
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+
+    .skill-used strong {
+      color: var(--cyan);
+      font-weight: 600;
+    }
+
+    /* ============ REFLECTION (Idea 6) ============ */
+    .reflection {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 34px 36px;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 14px;
+      background: linear-gradient(135deg, #0e1f36, #081526);
+      color: var(--silver);
+      font-size: 14.5px;
+      line-height: 1.95;
+    }
+
+    .reflection p + p { margin-top: 16px; }
+
+    .reflection em {
+      color: var(--cyan);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    /* ============ FOOTER ============ */
     footer {
       margin-top: 35px;
-      padding: 32px 0;
+      padding: 44px 0 32px;
       border-top: 1px solid var(--border);
       background: rgba(4,11,21,.65);
       color: var(--muted);
@@ -589,88 +805,112 @@
       letter-spacing: .5px;
     }
 
-    footer strong {
-      color: var(--cyan);
+    .footer-cta {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 26px;
     }
+
+    footer strong { color: var(--cyan); }
 
     footer .gold-line {
       width: 45px;
       height: 2px;
       background: var(--gold);
-      margin: 15px auto 0;
+      margin: 16px auto 0;
       opacity: .8;
     }
 
-    /* RESPONSIVE */
+    /* ============ REVEAL ON SCROLL ============ */
+    .js .case-study,
+    .js .skill-row,
+    .js .reflection {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
 
-    @media(max-width: 900px) {
-      .hero-grid {
+    .js .case-study.visible,
+    .js .skill-row.visible,
+    .js .reflection.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 980px) {
+      .journey {
         grid-template-columns: 1fr;
+        gap: 0;
       }
+      .timeline-rail { display: none; }
+    }
 
-      .logo-art {
-        max-width: 680px;
-        margin: auto;
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .logo-art { max-width: 680px; margin: auto; }
+    }
+
+    @media (max-width: 720px) {
+      .case-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
       }
-
-      .project-grid {
-        grid-template-columns: repeat(2,minmax(0,1fr));
+      .case-row dt { padding-top: 0; }
+      .case-foot { flex-direction: column; align-items: stretch; }
+      .case-link { justify-content: center; }
+      .skill-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
       }
     }
 
-    @media(max-width: 620px) {
+    @media (max-width: 620px) {
       .nav-links {
-        gap: 13px;
-        font-size: 11px;
+        gap: 12px;
+        font-size: 10.5px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
       }
+      .nav-links::-webkit-scrollbar { display: none; }
 
-      .brand {
-        font-size: 13px;
-      }
+      .brand { font-size: 13px; }
+      .brand-symbol { width: 36px; height: 36px; }
 
-      .brand-symbol {
-        width: 36px;
-        height: 36px;
-      }
+      .hero { padding: 55px 0 65px; }
+      .hero h1 { letter-spacing: -1.5px; }
 
-      .hero {
-        padding: 55px 0 65px;
-      }
-
-      .hero h1 {
-        letter-spacing: -1.5px;
-      }
-
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .project-info p {
-        min-height: auto;
-      }
+      .stat-strip { grid-template-columns: repeat(2, 1fr); }
 
       .internship-panel {
         grid-template-columns: 1fr;
         padding: 24px;
       }
+      .company-logo { max-width: 300px; margin: auto; }
+      .meta-grid { grid-template-columns: 1fr; }
 
-      .company-logo {
-        max-width: 300px;
-        margin: auto;
-      }
-
-      .section {
-        padding: 55px 0;
-      }
+      .section { padding: 55px 0; }
+      .case-study { padding: 24px; }
+      .case-visual { height: 170px; }
+      .reflection { padding: 24px; }
     }
 
-    @media(prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
         scroll-behavior: auto !important;
         transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
       }
+      .js .case-study,
+      .js .skill-row,
+      .js .reflection {
+        opacity: 1;
+        transform: none;
+      }
+      .cue-arrow { animation: none; }
     }
   </style>
 </head>
@@ -678,14 +918,11 @@
 <body>
 
   <!-- NAVIGATION -->
-
   <header>
     <div class="container">
       <nav>
-
         <a class="brand" href="./">
           <span class="brand-symbol">S</span>
-
           <span>
             SOMSHEKAR B
             <small>INTERNSHIP PORTFOLIO</small>
@@ -694,331 +931,430 @@
 
         <div class="nav-links">
           <a href="#internship">Internship</a>
-          <a href="#projects">Projects</a>
-          <a href="#technology">Technologies</a>
+          <a href="#projects">Journey</a>
+          <a href="#skills">Skills</a>
+          <a href="#reflection">Reflection</a>
         </div>
-
       </nav>
     </div>
   </header>
 
   <main>
 
-    <!-- HERO -->
-
+    <!-- ============ HERO + IMPACT DASHBOARD (Idea 3) ============ -->
     <section class="hero">
-      <div class="container hero-grid">
+      <div class="container">
 
-        <div>
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">Navabharath Technologies · Mysuru</span>
 
-          <span class="eyebrow">
-            Navabharath Technologies · Mysuru
-          </span>
+            <h1>
+              Building Ideas Into<br>
+              <span>Digital Experiences.</span>
+            </h1>
 
-          <h1>
-            Building Ideas Into<br>
-            <span>Digital Experiences.</span>
-          </h1>
+            <p class="hero-copy">
+              Software development intern at Navabharath Technologies, Mysuru.
+              Three responsive web projects — two healthcare platforms and a
+              PG booking system — built during a hands-on internship.
+            </p>
 
-          <p class="hero-copy">
-            Welcome to my internship project portfolio. This platform
-            showcases the websites and applications I have developed
-            and worked on during my internship at Navabharath
-            Technologies, highlighting practical implementation,
-            creativity and continuous learning.
-          </p>
-
-          <div class="hero-actions">
-
-            <a href="#projects" class="btn btn-primary">
-              Explore Projects ↗
-            </a>
-
-            <a
-              href="https://github.com/RajRocky1/Internship-NBT"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-secondary">
-              GitHub Repository ↗
-            </a>
-
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary">
+                Explore the Journey ↗
+              </a>
+              <a href="https://github.com/RajRocky1/Internship-NBT"
+                 target="_blank" rel="noopener noreferrer"
+                 class="btn btn-secondary">
+                GitHub Repository ↗
+              </a>
+            </div>
           </div>
 
+          <div class="logo-art">
+            <img src="./somshekar-logo.jpeg" alt="SomShekar B personal S and sword logo">
+            <div class="logo-caption">
+              Software Development · Innovation · Execution
+            </div>
+          </div>
         </div>
 
-        <!-- PERSONAL S + SWORD LOGO -->
-
-        <div class="logo-art">
-
-          <img
-            src="./somshekar-logo.jpeg"
-            alt="SomShekar B personal S and sword logo"
-          >
-
-          <div class="logo-caption">
-            Software Development · Innovation · Execution
+        <!-- Impact stat strip -->
+        <div class="stat-strip" role="list" aria-label="Internship impact at a glance">
+          <div class="stat" role="listitem">
+            <div class="stat-num">03</div>
+            <div class="stat-label">Projects delivered</div>
           </div>
+          <div class="stat" role="listitem">
+            <div class="stat-num">02</div>
+            <div class="stat-label">Healthcare platforms</div>
+          </div>
+          <div class="stat" role="listitem">
+            <div class="stat-num">04</div>
+            <div class="stat-label">Core technologies</div>
+          </div>
+          <div class="stat" role="listitem">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Responsive builds</div>
+          </div>
+        </div>
 
+        <div class="scroll-cue" aria-hidden="true">
+          <span>The journey</span>
+          <span class="cue-arrow">↓</span>
         </div>
 
       </div>
     </section>
 
-    <!-- INTERNSHIP ORGANIZATION -->
-
+    <!-- ============ INTERNSHIP CONTEXT (Idea 6) ============ -->
     <section class="section" id="internship">
-
       <div class="container">
 
         <div class="section-head">
           <span class="section-kicker">Professional Experience</span>
-          <h2>Internship Overview</h2>
-          <p>
-            Practical development experience through real-world
-            website and application projects.
-          </p>
+          <h2>Internship Context</h2>
+          <p>Where I worked, with whom, and what the team was trying to solve.</p>
         </div>
 
         <div class="internship-panel">
-
           <div class="internship-content">
-
             <h3>Navabharath Technologies</h3>
-
             <p>
-              Internship project work based in Mysuru, Karnataka.
-              This portfolio brings together the projects and practical
-              development work completed during my internship.
+              Internship project work based in Mysuru, Karnataka. The projects
+              below were built during this period — spanning responsive frontend
+              development and database-backed application flows.
             </p>
 
-            <span class="internship-location">
-              ◆ Mysuru, Karnataka, India
-            </span>
-
+            <div class="meta-grid">
+              <div class="meta-item">
+                <span class="meta-label">Role</span>
+                <span class="meta-value">Software Development Intern</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Location</span>
+                <span class="meta-value">Mysuru, Karnataka, India</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Focus</span>
+                <span class="meta-value">Responsive web + database-backed apps</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Stack</span>
+                <span class="meta-value">HTML · CSS · JS · MySQL</span>
+              </div>
+            </div>
           </div>
-
-          <!-- OFFICIAL NBT LOGO -->
 
           <div>
-
             <div class="company-logo">
-
-              <img
-                src="./NBT.png"
-                alt="Official Navabharath Technologies company logo"
-              >
-
+              <img src="./NBT.png" alt="Official Navabharath Technologies company logo">
             </div>
+            <div class="company-label">Internship Organization</div>
+          </div>
+        </div>
 
-            <div class="company-label">
-              Internship Organization
-            </div>
+      </div>
+    </section>
+
+    <!-- ============ JOURNEY: TIMELINE + CASE STUDIES (Ideas 1 + 2) ============ -->
+    <section class="section" id="projects">
+      <div class="container">
+
+        <div class="section-head">
+          <span class="section-kicker">The Journey</span>
+          <h2>Internship Project Timeline</h2>
+          <p>
+            Three phases, three builds — each one a step forward in how I think
+            about interfaces, data and delivery.
+          </p>
+        </div>
+
+        <div class="journey">
+
+          <!-- Sticky timeline rail -->
+          <aside class="timeline-rail" aria-label="Project timeline">
+            <nav class="rail-list">
+              <span class="rail-fill" aria-hidden="true"></span>
+
+              <a href="#case-medicare" class="rail-item active">
+                <small>Phase 01 · Foundation</small>
+                MediCare Hospital
+              </a>
+
+              <a href="#case-staynest" class="rail-item">
+                <small>Phase 02 · Systems</small>
+                StayNest
+              </a>
+
+              <a href="#case-dbg" class="rail-item">
+                <small>Phase 03 · Specialization</small>
+                DBG Gastro Care
+              </a>
+            </nav>
+          </aside>
+
+          <!-- Case studies -->
+          <div class="case-studies">
+
+            <!-- MEDICARE -->
+            <article class="case-study" id="case-medicare">
+              <div class="case-visual visual-hospital">
+                <span class="case-index">01 / 03</span>
+                <span class="visual-icon">🏥</span>
+              </div>
+
+              <div class="case-head">
+                <div>
+                  <span class="case-phase">Phase 01 · Foundation</span>
+                  <h3 class="case-title">MediCare Hospital</h3>
+                </div>
+                <span class="case-type">Healthcare Website</span>
+              </div>
+
+              <dl class="case-body">
+                <div class="case-row">
+                  <dt>Problem</dt>
+                  <dd>A hospital needed a digital front door — departments, doctor profiles, services and appointment enquiries — that worked cleanly on every device.</dd>
+                </div>
+                <div class="case-row">
+                  <dt>My role</dt>
+                  <dd>Owned the full frontend build: markup, styling, responsive layout and interactive interface elements.</dd>
+                </div>
+                <div class="case-row">
+                  <dt>Constraints</dt>
+                  <dd>Internship timeline, self-directed build, no CMS — every section had to be hand-structured.</dd>
+                </div>
+                <div class="case-row">
+                  <dt>What I built</dt>
+                  <dd>A responsive multi-section hospital site with healthcare department listings, doctor profiles, service pages and an appointment enquiry interface.</dd>
+                </div>
+                <div class="case-row">
+                  <dt>Result</dt>
+                  <dd>A complete, responsive hospital website with interactive UI elements — the foundation pattern reused in later builds.</dd>
+                </div>
+                <div class="case-row">
+                  <dt>Learned</dt>
+                  <dd>How to structure content for a service-driven site, and why responsive-first thinking changes layout decisions early.</dd>
+                </div>
+              </dl>
+
+              <div class="case-foot">
+                <div class="tags">
+                  <span>HTML5</span>
+                  <span>CSS3</span>
+                  <span>JavaScript</span>
+                  <span>Responsive Design</span>
+                </div>
+                <a href="./Hospital_Website/" target="_blank" rel="noopener noreferrer" class="case-link">
+                  View Project ↗
+                </a>
+              </div>
+            </article>
+
+            <!-- STAYNEST -->
+            <article class="case-study" id="case-staynest">
+              <div class="case-visual visual-staynest">
+                <span class="case-index">02 / 03</span>
+                <span class="visual-icon">🏠</span>
+              </div>
+
+              <div class="case-head">
+                <div>
+                  <span class="case-phase">Phase 02 · Systems</span>
+                  <h3 class="case-title">StayNest</h3>
+                </div>
+                <span class="case-type">PG Booking Application</span>
+              </div>
+
+              <dl class="case-body">
+                <div class="case-row">
+                  <dt>Problem</dt>
+                  <dd>PG accommodation discovery and booking needed a structured flow — with real data behind it, not just static pages.</dd>
+                </div>
+                <div class="case-row">
+                  <dt>My role</dt>
+                  <dd>Built the frontend flows and worked on the MySQL schema and queries that backed the booking logic.</dd>
+                </div>
+                <div class="case-row">
+                  <dt>Constraints</dt>
+                  <dd>Learning MySQL alongside the build — data modelling had to be figured out as the interface took shape.</dd>
+                </div>
+                <div class="case-row">
+                  <dt>What I built</dt>
+                  <dd>A PG booking system with property discovery, tenant workflows, booking-related activities and database management.</dd>
+                </div>
+                <div class="case-row">
+                  <dt>Result</dt>
+                  <dd>A working booking application with a connected MySQL database behind the UI.</dd>
+                </div>
+                <div class="case-row">
+                  <dt>Learned</dt>
+                  <dd>That data shapes the interface as much as design does — and how to think in entities and relations, not just screens.</dd>
+                </div>
+              </dl>
+
+              <div class="case-foot">
+                <div class="tags">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>MySQL</span>
+                </div>
+                <a href="./PG_Booking_System/" target="_blank" rel="noopener noreferrer" class="case-link">
+                  View Project ↗
+                </a>
+              </div>
+            </article>
+
+            <!-- DBG GASTRO -->
+            <article class="case-study" id="case-dbg">
+              <div class="case-visual visual-gastro">
+                <span class="case-index">03 / 03</span>
+                <span class="visual-icon">🩺</span>
+              </div>
+
+              <div class="case-head">
+                <div>
+                  <span class="case-phase">Phase 03 · Specialization</span>
+                  <h3 class="case-title">DBG Gastro Care</h3>
+                </div>
+                <span class="case-type">Specialty Healthcare Website</span>
+              </div>
+
+              <dl class="case-body">
+                <div class="case-row">
+                  <dt>Problem</dt>
+                  <dd>A gastroenterology clinic needed a focused site — services, procedures, clinic information and patient enquiries — for a high-trust, specialized audience.</dd>
+                </div>
+                <div class="case-row">
+                  <dt>My role</dt>
+                  <dd>Full build — page structure, responsive layouts and the patient enquiry interface.</dd>
+                </div>
+                <div class="case-row">
+                  <dt>Constraints</dt>
+                  <dd>Specialty medical content needed careful structuring — procedures and services had to be organized clearly for patients, not just listed.</dd>
+                </div>
+                <div class="case-row">
+                  <dt>What I built</dt>
+                  <dd>A gastroenterology-focused website with dedicated pages for services, procedures, clinic information, patient enquiries and responsive interfaces.</dd>
+                </div>
+                <div class="case-row">
+                  <dt>Result</dt>
+                  <dd>A responsive specialty healthcare site — the most content-structured build of the internship.</dd>
+                </div>
+                <div class="case-row">
+                  <dt>Learned</dt>
+                  <dd>How domain-specific content shapes hierarchy, and how to adapt patterns from earlier builds to a new context.</dd>
+                </div>
+              </dl>
+
+              <div class="case-foot">
+                <div class="tags">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>Responsive Design</span>
+                </div>
+                <a href="./DBG-Gastro/" target="_blank" rel="noopener noreferrer" class="case-link">
+                  View Project ↗
+                </a>
+              </div>
+            </article>
 
           </div>
-
         </div>
 
       </div>
-
     </section>
 
-    <!-- PROJECT SHOWCASE -->
-
-    <section class="section" id="projects">
-
+    <!-- ============ SKILLS MAP (Idea 6) ============ -->
+    <section class="section" id="skills">
       <div class="container">
 
         <div class="section-head">
-
-          <span class="section-kicker">Selected Work</span>
-
-          <h2>Projects Developed</h2>
-
-          <p>
-            A showcase of projects associated with my
-            Navabharath Technologies internship.
-          </p>
-
+          <span class="section-kicker">Earned, Not Listed</span>
+          <h2>Skills Mapped to Projects</h2>
+          <p>Each skill below is tied to the project that produced it — not just claimed.</p>
         </div>
 
-        <div class="project-grid">
-
-          <!-- MEDICARE -->
-
-          <article class="project-card">
-
-            <div class="project-visual visual-hospital">
-              <span class="visual-icon">🏥</span>
-            </div>
-
-            <div class="project-info">
-
-              <span class="project-type">
-                Healthcare Website
-              </span>
-
-              <h3>MediCare Hospital</h3>
-
-              <p>
-                A responsive hospital website featuring healthcare
-                departments, doctor profiles, services, appointment
-                enquiries and interactive interface elements.
-              </p>
-
-              <div class="tags">
-                <span>HTML5</span>
-                <span>CSS3</span>
-                <span>JavaScript</span>
-                <span>Responsive Design</span>
-              </div>
-
-              <a
-                href="./Hospital_Website/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-link">
-
-                View Project <span>↗</span>
-
-              </a>
-
-            </div>
-
-          </article>
-
-          <!-- STAYNEST -->
-
-          <article class="project-card">
-
-            <div class="project-visual visual-staynest">
-              <span class="visual-icon">🏠</span>
-            </div>
-
-            <div class="project-info">
-
-              <span class="project-type">
-                PG Booking Application
-              </span>
-
-              <h3>StayNest</h3>
-
-              <p>
-                A PG accommodation booking system designed to support
-                property discovery, tenant workflows, booking-related
-                activities and database management.
-              </p>
-
-              <div class="tags">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-                <span>MySQL</span>
-              </div>
-
-              <a
-                href="./PG_Booking_System/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-link">
-
-                View Project <span>↗</span>
-
-              </a>
-
-            </div>
-
-          </article>
-
-          <!-- DBG GASTRO -->
-
-          <article class="project-card">
-
-            <div class="project-visual visual-gastro">
-              <span class="visual-icon">🩺</span>
-            </div>
-
-            <div class="project-info">
-
-              <span class="project-type">
-                Specialty Healthcare Website
-              </span>
-
-              <h3>DBG Gastro Care</h3>
-
-              <p>
-                A gastroenterology-focused website with dedicated
-                pages for services, procedures, clinic information,
-                patient enquiries and responsive interfaces.
-              </p>
-
-              <div class="tags">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-                <span>Responsive Design</span>
-              </div>
-
-              <a
-                href="./DBG-Gastro/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-link">
-
-                View Project <span>↗</span>
-
-              </a>
-
-            </div>
-
-          </article>
-
+        <div class="skill-map">
+          <div class="skill-row">
+            <span class="skill-name">HTML5</span>
+            <span class="skill-used">All three builds — <strong>MediCare</strong>, <strong>StayNest</strong>, <strong>DBG Gastro</strong></span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">CSS3</span>
+            <span class="skill-used">All three builds — responsive layouts and visual systems</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">JavaScript</span>
+            <span class="skill-used">All three builds — interactivity, enquiry flows, UI behavior</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">MySQL</span>
+            <span class="skill-used"><strong>StayNest</strong> — schema design, queries, booking data</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Responsive Design</span>
+            <span class="skill-used">All three builds — mobile-first layout decisions throughout</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Git &amp; GitHub</span>
+            <span class="skill-used">Version control across the internship project repository</span>
+          </div>
         </div>
 
       </div>
-
     </section>
 
-    <!-- TECHNOLOGIES -->
-
-    <section class="section" id="technology">
-
+    <!-- ============ REFLECTION (Idea 6) ============ -->
+    <section class="section" id="reflection">
       <div class="container">
 
         <div class="section-head">
-
-          <span class="section-kicker">Development Stack</span>
-
-          <h2>Technologies Used</h2>
-
-          <p>
-            Technologies and tools used across the internship projects.
-          </p>
-
+          <span class="section-kicker">Looking Back</span>
+          <h2>What This Internship Taught Me</h2>
+          <p>A short reflection on growth, process, and what comes next.</p>
         </div>
 
-        <div class="tech-wrap">
-
-          <span class="tech">HTML5</span>
-          <span class="tech">CSS3</span>
-          <span class="tech">JavaScript</span>
-          <span class="tech">MySQL</span>
-          <span class="tech">Git</span>
-          <span class="tech">GitHub</span>
-          <span class="tech">Responsive Design</span>
-
+        <div class="reflection">
+          <p>
+            Before this internship, I thought building a website was mostly about
+            making it look right. Three projects later, I understand it's about making
+            it work right — for the person on the other side of the screen.
+            <em>MediCare</em> taught me to structure content for a real service.
+            <em>StayNest</em> taught me that data shapes the interface as much as
+            design does. <em>DBG Gastro Care</em> taught me to adapt those patterns
+            to a specialized, high-trust domain.
+          </p>
+          <p>
+            If I did this again, I'd document my decisions earlier and test on real
+            devices sooner — both would have saved rework. Next, I want to go deeper
+            on the backend: moving from MySQL queries toward full API design.
+          </p>
         </div>
 
       </div>
-
     </section>
 
   </main>
 
-  <!-- FOOTER -->
-
+  <!-- ============ FOOTER ============ -->
   <footer>
-
     <div class="container">
+
+      <div class="footer-cta">
+        <a href="https://github.com/RajRocky1/Internship-NBT"
+           target="_blank" rel="noopener noreferrer"
+           class="btn btn-secondary">
+          GitHub Repository ↗
+        </a>
+        <a href="#projects" class="btn btn-primary">
+          Revisit the Journey ↑
+        </a>
+      </div>
 
       Internship Portfolio ·
       <strong>SomShekar B</strong> ·
@@ -1028,12 +1364,71 @@
       <div class="gold-line"></div>
 
     </div>
-
   </footer>
 
   <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+    (function () {
+      // Year
+      var yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // Reveal on scroll
+      var revealEls = document.querySelectorAll(".case-study, .skill-row, .reflection");
+      if ("IntersectionObserver" in window) {
+        var revealObs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              revealObs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        revealEls.forEach(function (el) { revealObs.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add("visible"); });
+      }
+
+      // Scroll-spy for the timeline rail
+      var railItems = Array.prototype.slice.call(document.querySelectorAll(".rail-item"));
+      var caseStudies = Array.prototype.slice.call(document.querySelectorAll(".case-study"));
+      var railFill = document.querySelector(".rail-fill");
+      var railList = document.querySelector(".rail-list");
+
+      if (railItems.length && caseStudies.length && "IntersectionObserver" in window) {
+        var spy = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var id = "#" + entry.target.id;
+              railItems.forEach(function (item) {
+                item.classList.toggle("active", item.getAttribute("href") === id);
+              });
+            }
+          });
+        }, { rootMargin: "-45% 0px -45% 0px", threshold: 0 });
+        caseStudies.forEach(function (cs) { spy.observe(cs); });
+      }
+
+      // Progress fill on the rail
+      function updateFill() {
+        if (!railFill || !railList || !caseStudies.length) return;
+
+        var first = caseStudies[0].getBoundingClientRect();
+        var last = caseStudies[caseStudies.length - 1].getBoundingClientRect();
+        var total = last.bottom - first.top;
+        if (total <= 0) return;
+
+        var viewportMid = window.innerHeight / 2;
+        var progress = (viewportMid - first.top) / total;
+        progress = Math.max(0, Math.min(1, progress));
+
+        var trackHeight = railList.clientHeight - 48; // matches CSS top/bottom 24
+        railFill.style.height = Math.round(progress * trackHeight) + "px";
+      }
+
+      window.addEventListener("scroll", updateFill, { passive: true });
+      window.addEventListener("resize", updateFill);
+      updateFill();
+    })();
   </script>
 
 </body>
