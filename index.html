@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Internship project portfolio showcasing software and web development work completed at Navabharath Technologies, Mysuru.">
-    <meta name="theme-color" content="#050b18">
+        content="SomShekar B's internship project portfolio showcasing development work at Navabharath Technologies, Mysuru.">
+    <meta name="theme-color" content="#050505">
 
-    <title>Internship Portfolio | Navabharath Technologies</title>
+    <title>Internship Portfolio | SomShekar B</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,14 +18,15 @@
 
     <style>
         :root {
-            --bg: #050b18;
-            --surface: #0c1629;
-            --text: #f4f8ff;
-            --muted: #a0aec5;
-            --blue: #168cff;
-            --cyan: #39d9ff;
-            --line: rgba(151, 190, 255, .14);
-            --shadow: 0 24px 70px rgba(0, 0, 0, .32);
+            --bg: #050505;
+            --surface: #101113;
+            --surface-light: #181a1e;
+            --silver: #c5cbd3;
+            --white: #f5f7fa;
+            --muted: #999fa9;
+            --blue: #087cff;
+            --cyan: #37dfff;
+            --border: rgba(190, 205, 225, .15);
         }
 
         * {
@@ -40,17 +41,17 @@
 
         body {
             font-family: "DM Sans", sans-serif;
-            color: var(--text);
+            color: var(--white);
             background:
-                radial-gradient(circle at 78% 8%, rgba(0, 119, 255, .14), transparent 27rem),
-                radial-gradient(circle at 5% 42%, rgba(0, 190, 255, .08), transparent 25rem),
+                radial-gradient(ellipse at 75% 10%, rgba(8, 124, 255, .13), transparent 35%),
+                radial-gradient(ellipse at 10% 55%, rgba(55, 223, 255, .045), transparent 35%),
                 var(--bg);
             overflow-x: hidden;
         }
 
         a {
-            color: inherit;
             text-decoration: none;
+            color: inherit;
         }
 
         .container {
@@ -63,14 +64,14 @@
         header {
             position: sticky;
             top: 0;
-            z-index: 20;
-            background: rgba(5, 11, 24, .82);
-            backdrop-filter: blur(18px);
-            border-bottom: 1px solid var(--line);
+            z-index: 100;
+            background: rgba(5, 5, 5, .88);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
         }
 
         nav {
-            min-height: 76px;
+            min-height: 78px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -81,36 +82,41 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            font: 700 17px "Space Grotesk", sans-serif;
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 700;
+            font-size: 17px;
+            letter-spacing: 1px;
         }
 
         .brand-mark {
-            width: 38px;
-            height: 38px;
+            width: 40px;
+            height: 40px;
             display: grid;
             place-items: center;
-            border: 1px solid rgba(57, 217, 255, .45);
-            border-radius: 12px;
+            border: 1px solid rgba(55, 223, 255, .55);
+            border-radius: 10px;
             color: var(--cyan);
-            background: rgba(22, 140, 255, .12);
-            box-shadow: 0 0 24px rgba(22, 140, 255, .16);
+            background: linear-gradient(145deg, #20252c, #08090b);
+            box-shadow: 0 0 20px rgba(8, 124, 255, .2);
         }
 
         .brand small {
             display: block;
-            margin-top: 2px;
             color: var(--muted);
-            font: 500 10px "DM Sans", sans-serif;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
+            font: 500 9px "DM Sans", sans-serif;
+            letter-spacing: 2px;
+            margin-top: 3px;
         }
 
         .nav-links {
             display: flex;
-            align-items: center;
             gap: 28px;
             color: var(--muted);
             font-size: 13px;
+        }
+
+        .nav-links a {
+            transition: .3s;
         }
 
         .nav-links a:hover {
@@ -120,29 +126,28 @@
         /* HERO */
 
         .hero {
-            padding: 76px 0 82px;
-            position: relative;
+            padding: 85px 0 95px;
         }
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1.03fr .97fr;
+            grid-template-columns: 1.05fr .95fr;
             align-items: center;
-            gap: 44px;
+            gap: 55px;
         }
 
         .eyebrow {
             display: inline-flex;
             align-items: center;
             gap: 9px;
-            padding: 8px 13px;
-            border: 1px solid rgba(57, 217, 255, .28);
-            border-radius: 99px;
+            padding: 9px 15px;
+            border: 1px solid rgba(55, 223, 255, .3);
+            border-radius: 50px;
             color: var(--cyan);
-            background: rgba(22, 140, 255, .08);
+            background: rgba(8, 124, 255, .07);
             font-size: 11px;
             font-weight: 700;
-            letter-spacing: 1.5px;
+            letter-spacing: 1.6px;
             text-transform: uppercase;
         }
 
@@ -162,14 +167,18 @@
         }
 
         .hero h1 {
-            margin: 24px 0 20px;
-            font-size: clamp(39px, 5.4vw, 67px);
-            line-height: 1.06;
-            letter-spacing: -2.7px;
+            font-size: clamp(40px, 5.5vw, 68px);
+            line-height: 1.08;
+            letter-spacing: -2.5px;
+            margin: 27px 0 22px;
         }
 
         .hero h1 span {
-            background: linear-gradient(90deg, #fff, #58cfff 55%, #168cff);
+            background: linear-gradient(100deg,
+                    #ffffff,
+                    #c5cbd3 35%,
+                    #37dfff 75%,
+                    #087cff);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -185,41 +194,41 @@
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 13px;
-            margin-top: 30px;
+            gap: 14px;
+            margin-top: 32px;
         }
 
         .btn {
             display: inline-flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             gap: 10px;
-            padding: 13px 19px;
-            border-radius: 10px;
+            padding: 14px 20px;
+            border-radius: 8px;
             font-size: 13px;
             font-weight: 700;
-            transition: .25s ease;
+            transition: .3s;
         }
 
         .btn-primary {
-            color: #03101d;
-            background: linear-gradient(100deg, #55dcff, #168cff);
-            box-shadow: 0 10px 30px rgba(22, 140, 255, .2);
+            color: #050505;
+            background: linear-gradient(110deg, #e4e8ed, #37dfff, #087cff);
+            box-shadow: 0 8px 30px rgba(8, 124, 255, .2);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 14px 36px rgba(22, 140, 255, .32);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(8, 124, 255, .4);
         }
 
         .btn-secondary {
-            border: 1px solid var(--line);
-            color: var(--text);
-            background: rgba(255, 255, 255, .03);
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, .035);
+            color: var(--silver);
         }
 
         .btn-secondary:hover {
-            border-color: rgba(57, 217, 255, .5);
+            border-color: var(--cyan);
             color: var(--cyan);
         }
 
@@ -227,20 +236,22 @@
 
         .logo-art {
             position: relative;
-            padding: 12px;
-            border: 1px solid var(--line);
-            border-radius: 24px;
-            background: linear-gradient(145deg, rgba(17, 39, 70, .76), rgba(5, 11, 24, .7));
-            box-shadow: var(--shadow);
+            padding: 15px;
+            border: 1px solid rgba(190, 205, 225, .2);
+            border-radius: 22px;
+            background: linear-gradient(145deg, #1c1d20, #08090b 70%);
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, .7),
+                0 0 35px rgba(8, 124, 255, .12);
             overflow: hidden;
         }
 
         .logo-art::before {
             content: "";
             position: absolute;
-            inset: 15% 15%;
-            background: rgba(0, 145, 255, .18);
-            filter: blur(65px);
+            inset: 15%;
+            background: rgba(8, 124, 255, .2);
+            filter: blur(75px);
             border-radius: 50%;
         }
 
@@ -249,30 +260,30 @@
             display: block;
             width: 100%;
             height: auto;
-            border-radius: 15px;
+            border-radius: 12px;
             object-fit: contain;
         }
 
         .logo-caption {
             position: relative;
             text-align: center;
-            padding: 13px 5px 4px;
-            color: var(--muted);
+            padding: 16px 5px 5px;
+            color: var(--silver);
             font-size: 10px;
             letter-spacing: 2.2px;
             text-transform: uppercase;
         }
 
-        /* SECTIONS */
+        /* SECTION HEADINGS */
 
         .section {
-            padding: 74px 0;
+            padding: 75px 0;
         }
 
         .section-head {
             text-align: center;
             max-width: 700px;
-            margin: 0 auto 40px;
+            margin: 0 auto 42px;
         }
 
         .section-kicker {
@@ -284,9 +295,10 @@
         }
 
         .section-head h2 {
-            margin: 12px 0;
-            font-size: clamp(29px, 4vw, 42px);
-            letter-spacing: -1.2px;
+            margin: 13px 0;
+            font-size: clamp(30px, 4vw, 43px);
+            letter-spacing: -1.5px;
+            color: var(--silver);
         }
 
         .section-head p {
@@ -302,143 +314,149 @@
             grid-template-columns: 1fr auto;
             gap: 25px;
             align-items: center;
-            padding: 30px;
-            border: 1px solid var(--line);
-            border-radius: 18px;
-            background: linear-gradient(120deg, rgba(16, 31, 56, .95), rgba(8, 19, 36, .95));
+            padding: 32px;
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            background: linear-gradient(130deg, #191b1f, #090a0c);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, .3);
         }
 
         .internship-panel h3 {
-            font-size: 23px;
-            margin-bottom: 9px;
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: var(--silver);
         }
 
         .internship-panel p {
             max-width: 760px;
             color: var(--muted);
             font-size: 14px;
-            line-height: 1.8;
+            line-height: 1.9;
         }
 
         .internship-tag {
             white-space: nowrap;
+            padding: 11px 15px;
             color: var(--cyan);
-            border: 1px solid rgba(57, 217, 255, .25);
-            background: rgba(57, 217, 255, .07);
-            padding: 10px 14px;
-            border-radius: 9px;
+            border: 1px solid rgba(55, 223, 255, .3);
+            border-radius: 8px;
+            background: rgba(8, 124, 255, .08);
             font-size: 11px;
             font-weight: 700;
-            letter-spacing: .8px;
+            letter-spacing: 1px;
         }
 
-        /* PROJECT CARDS */
+        /* PROJECTS */
 
         .project-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 22px;
+            gap: 23px;
         }
 
         .project-card {
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            min-width: 0;
-            border: 1px solid var(--line);
-            border-radius: 18px;
-            background: linear-gradient(155deg, rgba(16, 31, 56, .98), rgba(8, 16, 31, .98));
-            transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            background: linear-gradient(145deg, #191b1f, #090a0c);
+            transition: .4s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(57, 217, 255, .45);
-            box-shadow: 0 22px 50px rgba(0, 0, 0, .28), 0 0 28px rgba(22, 140, 255, .08);
+            transform: translateY(-9px);
+            border-color: rgba(55, 223, 255, .55);
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, .5),
+                0 0 25px rgba(8, 124, 255, .12);
         }
 
         .project-visual {
-            height: 175px;
+            height: 180px;
             display: grid;
             place-items: center;
             position: relative;
             overflow: hidden;
         }
 
-        .project-visual::after {
+        .project-visual::before {
             content: "";
             position: absolute;
-            width: 190px;
-            height: 190px;
-            border: 1px solid rgba(255, 255, 255, .15);
+            width: 170px;
+            height: 170px;
+            border: 1px solid rgba(190, 205, 225, .2);
             border-radius: 50%;
-            box-shadow: 0 0 0 22px rgba(255, 255, 255, .025), 0 0 0 46px rgba(255, 255, 255, .02);
+            box-shadow:
+                0 0 0 25px rgba(255, 255, 255, .025),
+                0 0 0 50px rgba(255, 255, 255, .018);
         }
 
         .visual-hospital {
-            background: linear-gradient(135deg, #07506c, #087e91);
+            background: linear-gradient(135deg, #071c2c, #07506c, #111);
         }
 
         .visual-staynest {
-            background: linear-gradient(135deg, #34265f, #235a91);
+            background: linear-gradient(135deg, #101522, #27384e, #08090b);
         }
 
         .visual-gastro {
-            background: linear-gradient(135deg, #153d67, #087f87);
+            background: linear-gradient(135deg, #081a27, #07536a, #101010);
         }
 
         .visual-icon {
             position: relative;
             z-index: 1;
-            font-size: 59px;
-            filter: drop-shadow(0 8px 15px rgba(0, 0, 0, .25));
-            transition: transform .35s ease;
+            font-size: 61px;
+            filter: drop-shadow(0 0 15px rgba(55, 223, 255, .3));
+            transition: .4s;
         }
 
         .project-card:hover .visual-icon {
-            transform: scale(1.13) rotate(-4deg);
+            transform: scale(1.17) rotate(-5deg);
         }
 
         .project-info {
-            padding: 23px;
+            padding: 24px;
             display: flex;
-            flex: 1;
             flex-direction: column;
+            flex: 1;
         }
 
         .project-type {
             color: var(--cyan);
             font-size: 10px;
             font-weight: 700;
-            letter-spacing: 1.5px;
+            letter-spacing: 1.6px;
             text-transform: uppercase;
         }
 
         .project-info h3 {
-            margin: 10px 0;
+            margin: 12px 0;
             font-size: 22px;
+            color: var(--silver);
         }
 
         .project-info p {
             color: var(--muted);
             font-size: 13px;
-            line-height: 1.8;
-            min-height: 93px;
+            line-height: 1.85;
+            min-height: 95px;
         }
 
         .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 7px;
-            margin: 19px 0 22px;
+            gap: 8px;
+            margin: 20px 0 24px;
         }
 
         .tags span {
-            padding: 6px 9px;
-            border: 1px solid rgba(255, 255, 255, .07);
+            padding: 7px 10px;
+            border: 1px solid rgba(190, 205, 225, .13);
             border-radius: 6px;
-            color: #c7d5e9;
-            background: rgba(255, 255, 255, .045);
+            color: #c5cbd3;
+            background: rgba(255, 255, 255, .04);
             font-size: 10px;
         }
 
@@ -446,24 +464,23 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 10px;
             margin-top: auto;
-            padding: 12px 14px;
-            border-radius: 9px;
-            color: #04101e;
-            background: linear-gradient(100deg, #55dcff, #168cff);
+            padding: 13px 15px;
+            border-radius: 8px;
+            color: #050505;
+            background: linear-gradient(110deg, #d9dfe7, #37dfff, #087cff);
             font-size: 12px;
             font-weight: 700;
-            transition: .25s ease;
+            transition: .3s;
         }
 
         .project-link:hover {
-            filter: brightness(1.12);
-            transform: translateX(2px);
+            filter: brightness(1.2);
+            box-shadow: 0 0 20px rgba(8, 124, 255, .25);
         }
 
         .project-link span {
-            font-size: 18px;
+            font-size: 19px;
         }
 
         /* TECHNOLOGIES */
@@ -472,48 +489,51 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 13px;
         }
 
         .tech {
-            padding: 11px 16px;
-            border: 1px solid var(--line);
-            border-radius: 9px;
-            background: rgba(255, 255, 255, .035);
-            color: #d8e7fb;
+            padding: 12px 17px;
+            border: 1px solid rgba(190, 205, 225, .17);
+            border-radius: 8px;
+            color: var(--silver);
+            background: linear-gradient(145deg, #191b1f, #090a0c);
             font-size: 12px;
+            transition: .3s;
+        }
+
+        .tech:hover {
+            color: var(--cyan);
+            border-color: var(--cyan);
+            box-shadow: 0 0 15px rgba(8, 124, 255, .12);
         }
 
         /* FOOTER */
 
         footer {
-            margin-top: 40px;
-            padding: 27px 0;
-            border-top: 1px solid var(--line);
+            margin-top: 35px;
+            padding: 30px 0;
+            border-top: 1px solid var(--border);
             color: var(--muted);
             text-align: center;
             font-size: 12px;
+            letter-spacing: .5px;
         }
 
         footer strong {
             color: var(--cyan);
-            font-weight: 600;
         }
 
         /* RESPONSIVE */
 
-        @media (max-width: 900px) {
+        @media(max-width:900px) {
             .hero-grid {
                 grid-template-columns: 1fr;
             }
 
-            .hero-copy {
-                max-width: 720px;
-            }
-
             .logo-art {
                 max-width: 680px;
-                margin: 0 auto;
+                margin: auto;
             }
 
             .project-grid {
@@ -521,27 +541,26 @@
             }
         }
 
-        @media (max-width: 620px) {
+        @media(max-width:620px) {
+            nav {
+                min-height: 70px;
+            }
+
             .nav-links {
-                gap: 14px;
+                gap: 13px;
                 font-size: 11px;
             }
 
             .brand {
-                font-size: 14px;
-            }
-
-            .brand-mark {
-                width: 34px;
-                height: 34px;
+                font-size: 13px;
             }
 
             .hero {
-                padding: 54px 0 60px;
+                padding: 55px 0 65px;
             }
 
             .hero h1 {
-                letter-spacing: -1.7px;
+                letter-spacing: -1.5px;
             }
 
             .project-grid {
@@ -549,12 +568,12 @@
             }
 
             .project-info p {
-                min-height: 0;
+                min-height: auto;
             }
 
             .internship-panel {
                 grid-template-columns: 1fr;
-                padding: 23px;
+                padding: 24px;
             }
 
             .internship-tag {
@@ -562,11 +581,11 @@
             }
 
             .section {
-                padding: 56px 0;
+                padding: 55px 0;
             }
         }
 
-        @media (prefers-reduced-motion: reduce) {
+        @media(prefers-reduced-motion:reduce) {
 
             *,
             *::before,
@@ -584,14 +603,13 @@
 
     <header>
         <div class="container">
-            <nav aria-label="Main navigation">
+            <nav>
 
-                <a class="brand" href="./" aria-label="Internship portfolio home">
-                    <span class="brand-mark">NBT</span>
-
+                <a class="brand" href="./">
+                    <span class="brand-mark">S</span>
                     <span>
-                        INTERNSHIP<span style="color:var(--cyan)">.PORTFOLIO</span>
-                        <small>Project showcase</small>
+                        SOMSHEKAR B
+                        <small>INTERNSHIP PORTFOLIO</small>
                     </span>
                 </a>
 
@@ -607,7 +625,7 @@
 
     <main>
 
-        <!-- HERO SECTION -->
+        <!-- HERO -->
 
         <section class="hero">
             <div class="container hero-grid">
@@ -619,40 +637,41 @@
                     </span>
 
                     <h1>
-                        Building practical<br>
-                        <span>digital solutions.</span>
+                        Building Ideas Into<br>
+                        <span>Digital Experiences.</span>
                     </h1>
 
                     <p class="hero-copy">
-                        Welcome to my internship project portfolio. This space brings
-                        together the websites and applications I have worked on during
-                        my internship at Navabharath Technologies, highlighting practical
-                        development, implementation and learning.
+                        Welcome to my internship project portfolio. This platform
+                        showcases the websites and applications I have developed
+                        and worked on during my internship at Navabharath
+                        Technologies, highlighting practical implementation,
+                        creativity and continuous learning.
                     </p>
 
                     <div class="hero-actions">
 
-                        <a class="btn btn-primary" href="#projects">
-                            Explore projects <span>↘</span>
+                        <a href="#projects" class="btn btn-primary">
+                            Explore Projects ↗
                         </a>
 
-                        <a class="btn btn-secondary" href="https://github.com/RajRocky1/Internship-NBT" target="_blank"
-                            rel="noopener noreferrer">
-                            View GitHub repository ↗
+                        <a href="https://github.com/RajRocky1/Internship-NBT" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-secondary">
+                            GitHub Repository ↗
                         </a>
 
                     </div>
 
                 </div>
 
-                <!-- YOUR S + SWORD LOGO -->
+                <!-- LOGO IMAGE -->
 
                 <div class="logo-art">
 
-                    <img src="./somshekar-logo.jpeg" alt="SomShekar B — Software Developer, S and sword emblem">
+                    <img src="./somshekar-logo.jpeg" alt="SomShekar B S and Sword Logo">
 
                     <div class="logo-caption">
-                        Software development · Practical learning · Project delivery
+                        Software Development · Innovation · Execution
                     </div>
 
                 </div>
@@ -660,38 +679,31 @@
             </div>
         </section>
 
-        <!-- INTERNSHIP OVERVIEW -->
+        <!-- INTERNSHIP -->
 
         <section class="section" id="internship">
 
             <div class="container">
 
                 <div class="section-head">
-
-                    <span class="section-kicker">
-                        The experience
-                    </span>
-
+                    <span class="section-kicker">Professional Experience</span>
                     <h2>Internship Overview</h2>
-
                     <p>
-                        A focused showcase of work completed as part of the internship experience.
+                        Practical development experience through real-world
+                        website and application projects.
                     </p>
-
                 </div>
 
                 <div class="internship-panel">
 
                     <div>
-
                         <h3>Navabharath Technologies</h3>
 
                         <p>
                             Internship project work based in Mysuru, Karnataka.
-                            The projects below represent the work associated with
-                            this internship and are presented together in one portfolio.
+                            This portfolio brings together the projects and practical
+                            development work completed during my internship.
                         </p>
-
                     </div>
 
                     <span class="internship-tag">
@@ -704,42 +716,34 @@
 
         </section>
 
-        <!-- PROJECT SHOWCASE -->
+        <!-- PROJECTS -->
 
         <section class="section" id="projects">
 
             <div class="container">
 
                 <div class="section-head">
-
-                    <span class="section-kicker">
-                        Selected work
-                    </span>
-
+                    <span class="section-kicker">Selected Work</span>
                     <h2>Projects Developed</h2>
-
                     <p>
-                        Explore the three projects included in this Navabharath
-                        Technologies internship portfolio.
+                        A showcase of projects associated with my
+                        Navabharath Technologies internship.
                     </p>
-
                 </div>
 
                 <div class="project-grid">
 
-                    <!-- PROJECT 1: MEDICARE -->
+                    <!-- MEDICARE -->
 
                     <article class="project-card">
 
                         <div class="project-visual visual-hospital">
-                            <span class="visual-icon" aria-hidden="true">🏥</span>
+                            <span class="visual-icon">🏥</span>
                         </div>
 
                         <div class="project-info">
 
-                            <span class="project-type">
-                                Healthcare website
-                            </span>
+                            <span class="project-type">Healthcare Website</span>
 
                             <h3>MediCare Hospital</h3>
 
@@ -753,95 +757,90 @@
                                 <span>HTML5</span>
                                 <span>CSS3</span>
                                 <span>JavaScript</span>
-                                <span>Responsive UI</span>
+                                <span>Responsive Design</span>
                             </div>
 
-                            <a class="project-link" href="./Hospital_Website/" target="_blank"
-                                rel="noopener noreferrer">
+                            <a href="./Hospital_Website/" target="_blank" rel="noopener noreferrer"
+                                class="project-link">
 
-                                View project <span>↗</span>
+                                View Project <span>↗</span>
 
                             </a>
 
                         </div>
-
                     </article>
 
-                    <!-- PROJECT 2: STAYNEST -->
+                    <!-- STAYNEST -->
 
                     <article class="project-card">
 
                         <div class="project-visual visual-staynest">
-                            <span class="visual-icon" aria-hidden="true">🏠</span>
+                            <span class="visual-icon">🏠</span>
                         </div>
 
                         <div class="project-info">
 
-                            <span class="project-type">
-                                Full-stack web application
-                            </span>
+                            <span class="project-type">PG Booking Application</span>
 
-                            <h3>StayNest · PG Booking System</h3>
+                            <h3>StayNest</h3>
 
                             <p>
-                                A PG accommodation platform designed to support
+                                A PG accommodation booking system designed to support
                                 property discovery, tenant workflows, booking-related
-                                activities and role-based access.
-                            </p>
-
-                            <div class="tags">
-                                <span>MySQL</span>
-                                <span>JavaScript</span>
-                            </div>
-
-                            <a class="project-link" href="./PG_Booking_System/" target="_blank"
-                                rel="noopener noreferrer">
-
-                                View project <span>↗</span>
-
-                            </a>
-
-                        </div>
-
-                    </article>
-
-                    <!-- PROJECT 3: DBG GASTRO CARE -->
-
-                    <article class="project-card">
-
-                        <div class="project-visual visual-gastro">
-                            <span class="visual-icon" aria-hidden="true">🩺</span>
-                        </div>
-
-                        <div class="project-info">
-
-                            <span class="project-type">
-                                Specialty healthcare website
-                            </span>
-
-                            <h3>DBG Gastro Care</h3>
-
-                            <p>
-                                A gastroenterology-focused website with dedicated
-                                pages for services, procedures, clinic information
-                                and patient contact.
+                                activities and database management.
                             </p>
 
                             <div class="tags">
                                 <span>HTML</span>
                                 <span>CSS</span>
                                 <span>JavaScript</span>
-                                <span>Responsive UI</span>
+                                <span>MySQL</span>
                             </div>
 
-                            <a class="project-link" href="./DBG-Gastro/" target="_blank" rel="noopener noreferrer">
+                            <a href="./PG_Booking_System/" target="_blank" rel="noopener noreferrer"
+                                class="project-link">
 
-                                View project <span>↗</span>
+                                View Project <span>↗</span>
 
                             </a>
 
                         </div>
+                    </article>
 
+                    <!-- DBG GASTRO -->
+
+                    <article class="project-card">
+
+                        <div class="project-visual visual-gastro">
+                            <span class="visual-icon">🩺</span>
+                        </div>
+
+                        <div class="project-info">
+
+                            <span class="project-type">Specialty Healthcare Website</span>
+
+                            <h3>DBG Gastro Care</h3>
+
+                            <p>
+                                A gastroenterology-focused website with dedicated
+                                pages for services, procedures, clinic information,
+                                patient enquiries and responsive interfaces.
+                            </p>
+
+                            <div class="tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                                <span>Responsive Design</span>
+                            </div>
+
+                            <a href="./DBG-Gastro/" target="_blank" rel="noopener noreferrer" class="project-link">
+
+                                View Project <span>↗</span>
+
+                            </a>
+
+                        </div>
                     </article>
 
                 </div>
@@ -857,17 +856,11 @@
             <div class="container">
 
                 <div class="section-head">
-
-                    <span class="section-kicker">
-                        Tools & skills
-                    </span>
-
+                    <span class="section-kicker">Development Stack</span>
                     <h2>Technologies Used</h2>
-
                     <p>
-                        Technologies represented across the internship projects.
+                        Technologies and tools used across the internship projects.
                     </p>
-
                 </div>
 
                 <div class="tech-wrap">
@@ -876,7 +869,8 @@
                     <span class="tech">CSS3</span>
                     <span class="tech">JavaScript</span>
                     <span class="tech">MySQL</span>
-                    <span class="tech">Git & GitHub</span>
+                    <span class="tech">Git</span>
+                    <span class="tech">GitHub</span>
                     <span class="tech">Responsive Design</span>
 
                 </div>
@@ -890,15 +884,12 @@
     <!-- FOOTER -->
 
     <footer>
-
         <div class="container">
-
             Internship Portfolio ·
-            <strong>Navabharath Technologies</strong> ·
+            <strong>SomShekar B</strong> ·
+            Navabharath Technologies ·
             <span id="year"></span>
-
         </div>
-
     </footer>
 
     <script>
