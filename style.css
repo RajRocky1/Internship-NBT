@@ -2,6 +2,8 @@
 :root {
     --bg: #f5f7fc;
     --surface: #ffffff;
+    --surface-rgb: 255, 255, 255;
+    /* For glass effects */
     --surface-soft: #f8fafe;
     --ink: #0f172a;
     --ink-soft: #334155;
@@ -14,13 +16,9 @@
     --cyan: #0891b2;
     --pink: #db2777;
 
-    --header-bg: rgba(255, 255, 255, .78);
+    --header-bg: rgba(255, 255, 255, .65);
     --card-shadow: 0 12px 32px rgba(15, 23, 42, .06);
-    --card-shadow-hover: 0 22px 50px rgba(15, 23, 42, .10);
-
-    --visual-hospital: linear-gradient(135deg, #dbeafe, #c7d2fe 55%, #a5b4fc);
-    --visual-staynest: linear-gradient(135deg, #ede9fe, #ddd6fe 55%, #c4b5fd);
-    --visual-gastro: linear-gradient(135deg, #cffafe, #a5f3fc 55%, #99f6e4);
+    --card-shadow-hover: 0 22px 50px rgba(15, 23, 42, .12);
 
     --phase-bg: #f5f3ff;
     --phase-border: #ede9fe;
@@ -31,6 +29,7 @@
 [data-theme="dark"] {
     --bg: #0b1120;
     --surface: #111c34;
+    --surface-rgb: 17, 28, 52;
     --surface-soft: #1a2744;
     --ink: #f8fafc;
     --ink-soft: #cbd5e1;
@@ -43,13 +42,9 @@
     --cyan: #22d3ee;
     --pink: #f472b6;
 
-    --header-bg: rgba(11, 17, 32, .78);
+    --header-bg: rgba(11, 17, 32, .65);
     --card-shadow: 0 12px 32px rgba(0, 0, 0, .4);
     --card-shadow-hover: 0 22px 50px rgba(0, 0, 0, .6);
-
-    --visual-hospital: linear-gradient(135deg, #1e3a8a, #312e81 55%, #4338ca);
-    --visual-staynest: linear-gradient(135deg, #4c1d95, #5b21b6 55%, #6d28d9);
-    --visual-gastro: linear-gradient(135deg, #164e63, #155e75 55%, #0e7490);
 
     --phase-bg: #2e1065;
     --phase-border: #4c1d95;
@@ -57,7 +52,7 @@
     --type-border: #1e3a8a;
 }
 
-/* ============ BASE ============ */
+/* ============ BASE & ANIMATED BACKGROUND ============ */
 * {
     margin: 0;
     padding: 0;
@@ -73,21 +68,61 @@ body {
     font-family: "DM Sans", sans-serif;
     color: var(--ink);
     background-color: var(--bg);
-    background-image:
-        radial-gradient(900px 520px at 82% -10%, rgba(124, 58, 237, .13), transparent 62%),
-        radial-gradient(720px 420px at 0% 22%, rgba(6, 182, 212, .10), transparent 62%),
-        radial-gradient(820px 640px at 100% 74%, rgba(236, 72, 153, .07), transparent 60%);
-    background-attachment: fixed;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     transition: background-color .4s, color .4s;
 }
 
-[data-theme="dark"] body {
-    background-image:
-        radial-gradient(900px 520px at 82% -10%, rgba(124, 58, 237, .15), transparent 62%),
-        radial-gradient(720px 420px at 0% 22%, rgba(6, 182, 212, .08), transparent 62%),
-        radial-gradient(820px 640px at 100% 74%, rgba(236, 72, 153, .05), transparent 60%);
+/* Animated Background Blobs */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.6;
+    pointer-events: none;
+    animation: floatBlobs 20s infinite alternate ease-in-out;
+}
+
+body::before {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(124, 58, 237, .15), transparent 70%);
+    top: -10%;
+    right: -5%;
+}
+
+body::after {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(6, 182, 212, .12), transparent 70%);
+    bottom: -10%;
+    left: -5%;
+    animation-delay: -10s;
+}
+
+[data-theme="dark"] body::before {
+    background: radial-gradient(circle, rgba(124, 58, 237, .25), transparent 70%);
+}
+
+[data-theme="dark"] body::after {
+    background: radial-gradient(circle, rgba(6, 182, 212, .15), transparent 70%);
+}
+
+@keyframes floatBlobs {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-30px, 40px) scale(1.1);
+    }
+
+    100% {
+        transform: translate(30px, -40px) scale(0.9);
+    }
 }
 
 a {
@@ -104,14 +139,42 @@ img {
     margin: auto;
 }
 
+/* ============ GLASS GLARE UTILITY ============ */
+.glare-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.glare-effect::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 10;
+    pointer-events: none;
+}
+
+[data-theme="dark"] .glare-effect::after {
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15), transparent);
+}
+
+.glare-effect:hover::after {
+    left: 150%;
+}
+
 /* ============ NAVBAR ============ */
 header {
     position: sticky;
     top: 0;
     z-index: 100;
     background: var(--header-bg);
-    backdrop-filter: saturate(180%) blur(16px);
-    -webkit-backdrop-filter: saturate(180%) blur(16px);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
     border-bottom: 1px solid var(--line);
     transition: background .4s, border-color .4s;
 }
@@ -131,7 +194,6 @@ nav {
     font-family: "Space Grotesk", sans-serif;
     font-weight: 700;
     font-size: 16px;
-    letter-spacing: .5px;
     color: var(--ink);
 }
 
@@ -145,7 +207,6 @@ nav {
     background: linear-gradient(145deg, var(--blue), var(--violet));
     box-shadow: 0 8px 22px rgba(37, 99, 235, .30);
     font-size: 20px;
-    font-weight: 700;
 }
 
 .brand small {
@@ -219,20 +280,6 @@ nav {
 .hero {
     position: relative;
     padding: 78px 0 80px;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 520px;
-    height: 520px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(124, 58, 237, .13), transparent 68%);
-    filter: blur(30px);
-    top: -220px;
-    right: 4%;
-    pointer-events: none;
 }
 
 .hero-grid {
@@ -283,9 +330,17 @@ h3 {
 
 .hero h1 span {
     background: linear-gradient(100deg, var(--blue) 0%, var(--violet) 55%, var(--pink) 100%);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    animation: shineText 4s linear infinite;
+}
+
+@keyframes shineText {
+    to {
+        background-position: 200% center;
+    }
 }
 
 .hero-copy {
@@ -339,25 +394,15 @@ h3 {
     transform: translateY(-3px);
 }
 
+/* Personal logo */
 .logo-art {
     position: relative;
     padding: 12px;
     border: 1px solid var(--line);
     border-radius: 22px;
-    background: var(--surface);
+    background: rgba(var(--surface-rgb), 0.6);
+    backdrop-filter: blur(12px);
     box-shadow: 0 22px 55px rgba(15, 23, 42, .10);
-    overflow: hidden;
-    transition: background .4s, border-color .4s;
-}
-
-.logo-art::before {
-    content: "";
-    position: absolute;
-    inset: 18%;
-    background: rgba(124, 58, 237, .14);
-    filter: blur(70px);
-    border-radius: 50%;
-    pointer-events: none;
 }
 
 .logo-art img {
@@ -379,7 +424,7 @@ h3 {
     text-transform: uppercase;
 }
 
-/* ============ STATS ============ */
+/* ============ STATS (Glass) ============ */
 .stat-strip {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -390,12 +435,18 @@ h3 {
 .stat {
     position: relative;
     padding: 26px 22px 24px;
-    background: var(--surface);
+    background: rgba(var(--surface-rgb), 0.7);
+    backdrop-filter: blur(16px);
     border: 1px solid var(--line);
     border-radius: 16px;
     box-shadow: var(--card-shadow);
     overflow: hidden;
-    transition: background .4s, border-color .4s;
+    transition: transform .3s ease, border-color .3s;
+}
+
+.stat:hover {
+    transform: translateY(-5px);
+    border-color: var(--line-strong);
 }
 
 .stat::before {
@@ -486,7 +537,7 @@ h3 {
     }
 }
 
-/* ============ SECTION COMMON ============ */
+/* ============ SECTIONS COMMON ============ */
 .section {
     padding: 80px 0;
     position: relative;
@@ -519,20 +570,20 @@ h3 {
     line-height: 1.8;
 }
 
-/* ============ INTERNSHIP CONTEXT ============ */
+/* ============ INTERNSHIP CONTEXT (Glass) ============ */
 .internship-panel {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 260px;
+    grid-template-columns: minmax(0, 1fr) 280px;
     align-items: center;
     gap: 36px;
     padding: 36px;
     border: 1px solid var(--line);
     border-radius: 20px;
-    background: var(--surface);
+    background: rgba(var(--surface-rgb), 0.7);
+    backdrop-filter: blur(16px);
     box-shadow: var(--card-shadow);
     position: relative;
     overflow: hidden;
-    transition: background .4s, border-color .4s;
 }
 
 .internship-panel::before {
@@ -542,7 +593,7 @@ h3 {
     top: 0;
     bottom: 0;
     width: 4px;
-    background: linear-gradient(to bottom, var(--blue), var(--violet), var(--pink));
+    background: linear-gradient(to bottom, #0b2545, #c77b19);
 }
 
 .internship-panel h3 {
@@ -577,7 +628,7 @@ h3 {
     font-size: 9.5px;
     letter-spacing: 1.8px;
     text-transform: uppercase;
-    color: var(--violet);
+    color: #c77b19;
     font-weight: 700;
 }
 
@@ -590,28 +641,37 @@ h3 {
 
 .company-logo {
     position: relative;
-    background: #000;
+    background: #ffffff;
     border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 16px;
+    border-radius: 16px;
+    padding: 24px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    box-shadow: 0 12px 30px rgba(15, 23, 42, .12);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, .08);
+    transition: transform .3s ease;
+}
+
+[data-theme="dark"] .company-logo {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.company-logo:hover {
+    transform: translateY(-3px);
 }
 
 .company-logo img {
     width: 100%;
     height: auto;
-    max-height: 175px;
+    max-height: 160px;
     object-fit: contain;
     display: block;
 }
 
 .company-label {
     text-align: center;
-    margin-top: 12px;
+    margin-top: 14px;
     color: var(--muted);
     font-size: 10px;
     font-weight: 600;
@@ -631,10 +691,7 @@ h3 {
     position: sticky;
     top: 104px;
     z-index: 10;
-    background: var(--bg);
-    /* Masks scrolling content */
     padding-right: 20px;
-    transition: background .4s;
 }
 
 .rail-list {
@@ -725,6 +782,21 @@ h3 {
     border-color: var(--blue);
     background: var(--blue);
     box-shadow: 0 0 0 4px rgba(37, 99, 235, .15);
+    animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 8px rgba(37, 99, 235, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+    }
 }
 
 .case-studies {
@@ -732,15 +804,17 @@ h3 {
     min-width: 0;
 }
 
+/* Case Studies (Glass + Glare) */
 .case-study {
     padding: 34px;
     border: 1px solid var(--line);
     border-radius: 20px;
-    background: var(--surface);
+    background: rgba(var(--surface-rgb), 0.6);
+    backdrop-filter: blur(16px);
     margin-bottom: 30px;
     scroll-margin-top: 104px;
     box-shadow: var(--card-shadow);
-    transition: box-shadow .3s ease, background .4s, border-color .4s;
+    transition: box-shadow .3s ease, transform .3s ease;
 }
 
 .case-study:last-child {
@@ -749,81 +823,55 @@ h3 {
 
 .case-study:hover {
     box-shadow: var(--card-shadow-hover);
+    transform: translateY(-4px);
 }
 
 .case-visual {
     height: 240px;
     border-radius: 14px;
     margin-bottom: 28px;
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     overflow: hidden;
-}
-
-.case-visual::before {
-    content: "";
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 1px solid rgba(15, 23, 42, .07);
-    box-shadow: 0 0 0 30px rgba(255, 255, 255, .30), 0 0 0 60px rgba(255, 255, 255, .15);
-    pointer-events: none;
-}
-
-[data-theme="dark"] .case-visual::before {
-    border-color: rgba(255, 255, 255, .05);
-    box-shadow: 0 0 0 30px rgba(255, 255, 255, .05), 0 0 0 60px rgba(255, 255, 255, .02);
+    background: #0a1120;
+    border: 1px solid var(--line);
 }
 
 .case-visual::after {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: linear-gradient(rgba(15, 23, 42, .055) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 23, 42, .055) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
     background-size: 34px 34px;
     pointer-events: none;
 }
 
-[data-theme="dark"] .case-visual::after {
-    background-image: linear-gradient(rgba(255, 255, 255, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .04) 1px, transparent 1px);
+.project-logo {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    transition: transform .4s ease;
+    border-radius: 8px;
 }
 
-.visual-hospital {
-    background: var(--visual-hospital);
-}
-
-.visual-staynest {
-    background: var(--visual-staynest);
-}
-
-.visual-gastro {
-    background: var(--visual-gastro);
+.case-study:hover .project-logo {
+    transform: scale(1.05);
 }
 
 .case-index {
     position: absolute;
     top: 16px;
     left: 20px;
-    z-index: 2;
+    z-index: 3;
     font-family: "Space Grotesk", sans-serif;
     font-size: 11px;
     letter-spacing: 2px;
-    color: var(--ink-soft);
+    color: rgba(255, 255, 255, 0.6);
     font-weight: 700;
-}
-
-.visual-icon {
-    position: relative;
-    z-index: 2;
-    font-size: 62px;
-    filter: drop-shadow(0 8px 18px rgba(15, 23, 42, .18));
-    transition: transform .4s ease;
-}
-
-.case-study:hover .visual-icon {
-    transform: scale(1.12) rotate(-4deg);
 }
 
 .case-head {
@@ -986,9 +1034,10 @@ h3 {
     padding: 16px 22px;
     border: 1px solid var(--line);
     border-radius: 12px;
-    background: var(--surface);
+    background: rgba(var(--surface-rgb), 0.7);
+    backdrop-filter: blur(12px);
     box-shadow: 0 4px 14px rgba(15, 23, 42, .04);
-    transition: .25s ease, background .4s;
+    transition: .25s ease;
 }
 
 .skill-row:hover {
@@ -1025,12 +1074,12 @@ h3 {
     border: 1px solid var(--phase-border);
     border-left: 4px solid var(--violet);
     border-radius: 16px;
-    background: var(--surface-soft);
+    background: rgba(var(--surface-rgb), 0.8);
+    backdrop-filter: blur(16px);
     color: var(--ink-soft);
     font-size: 14.5px;
     line-height: 1.95;
     box-shadow: 0 14px 36px rgba(124, 58, 237, .10);
-    transition: background .4s, border-color .4s;
 }
 
 .reflection p+p {
@@ -1048,12 +1097,13 @@ footer {
     margin-top: 40px;
     padding: 46px 0 34px;
     border-top: 1px solid var(--line);
-    background: var(--surface);
+    background: rgba(var(--surface-rgb), 0.8);
+    backdrop-filter: blur(16px);
     color: var(--muted);
     text-align: center;
     font-size: 12px;
     letter-spacing: .4px;
-    transition: background .4s, border-color .4s;
+    transition: background .4s;
 }
 
 .footer-cta {
@@ -1234,111 +1284,9 @@ footer .gold-line {
     .cue-arrow {
         animation: none;
     }
-}
-/* ============ INTERNSHIP CONTEXT ============ */
 
-.internship-panel {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 280px;
-  align-items: center;
-  gap: 36px;
-  padding: 36px;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  background: var(--surface);
-  box-shadow: var(--card-shadow);
-  position: relative; 
-  overflow: hidden;
-  transition: background .4s, border-color .4s;
-}
-
-/* Change the left border line to NBT's Navy & Gold */
-.internship-panel::before {
-  content: ""; 
-  position: absolute; 
-  left: 0; top: 0; bottom: 0; width: 4px;
-  background: linear-gradient(to bottom, #0b2545, #c77b19);
-}
-
-.internship-panel h3 { 
-  font-size: 25px; 
-  color: var(--ink); 
-  margin-bottom: 12px; 
-  letter-spacing: -.4px; 
-}
-
-.internship-panel p { 
-  color: var(--muted); 
-  font-size: 14px; 
-  line-height: 1.9; 
-}
-
-.meta-grid { 
-  display: grid; 
-  grid-template-columns: repeat(2, minmax(0, 1fr)); 
-  gap: 16px 26px; 
-  margin-top: 24px; 
-  padding-top: 22px; 
-  border-top: 1px solid var(--line); 
-}
-
-.meta-item { display: flex; flex-direction: column; gap: 5px; }
-
-/* Change labels to NBT's Gold color */
-.meta-label { 
-  font-size: 9.5px; 
-  letter-spacing: 1.8px; 
-  text-transform: uppercase; 
-  color: #c77b19; 
-  font-weight: 700; 
-}
-
-.meta-value { 
-  font-size: 13.5px; 
-  color: var(--ink-soft); 
-  line-height: 1.5; 
-  font-weight: 500; 
-}
-
-/* ============ COMPANY LOGO BADGE ============ */
-.company-logo {
-  position: relative;
-  /* Force a white background so the logo blends perfectly */
-  background: #ffffff; 
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 24px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  box-shadow: 0 12px 30px rgba(15, 23, 42, .08);
-  transition: transform .3s ease;
-}
-
-/* In Dark Mode, add a slight glow/border to the white box so it doesn't look harsh */
-[data-theme="dark"] .company-logo {
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 12px 30px rgba(0, 0, 0, 0.4);
-}
-
-.company-logo:hover {
-  transform: translateY(-3px);
-}
-
-.company-logo img {
-  width: 100%;
-  height: auto;
-  max-height: 160px;
-  object-fit: contain;
-  display: block;
-}
-
-.company-label {
-  text-align: center;
-  margin-top: 14px;
-  color: var(--muted);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
+    body::before,
+    body::after {
+        animation: none;
+    }
 }
