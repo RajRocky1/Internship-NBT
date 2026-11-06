@@ -1290,3 +1290,676 @@ footer .gold-line {
         animation: none;
     }
 }
+
+/* ============================================================
+   ✨ EXTRA ANIMATIONS LAYER — appended additions only
+   ============================================================ */
+
+/* ---------- 1. SECTION HEAD KICKER SHIMMER ---------- */
+.section-kicker {
+    background: linear-gradient(90deg, var(--violet), var(--blue), var(--pink), var(--violet));
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: kickerShimmer 6s linear infinite;
+}
+
+@keyframes kickerShimmer {
+    to {
+        background-position: 300% center;
+    }
+}
+
+/* ---------- 2. EYEBROW PULSE RING ---------- */
+.eyebrow::before {
+    animation: eyebrowPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes eyebrowPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px var(--violet);
+    }
+
+    50% {
+        transform: scale(1.35);
+        box-shadow: 0 0 16px var(--violet), 0 0 26px rgba(124, 58, 237, .5);
+    }
+}
+
+/* ---------- 3. BUTTON GLOW TRACKING / SHEEN ---------- */
+.btn {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg,
+            transparent 20%,
+            rgba(255, 255, 255, .35) 45%,
+            rgba(255, 255, 255, .15) 55%,
+            transparent 80%);
+    transform: translateX(-120%);
+    transition: transform .65s cubic-bezier(.19, 1, .22, 1);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.btn:hover::before {
+    transform: translateX(120%);
+}
+
+.btn-primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 0 0 rgba(124, 58, 237, .55);
+    animation: btnPulse 2.6s ease-out infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes btnPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(124, 58, 237, .45);
+    }
+
+    70% {
+        box-shadow: 0 0 0 14px rgba(124, 58, 237, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0);
+    }
+}
+
+.btn:active {
+    transform: translateY(1px) scale(.98) !important;
+    transition-duration: .08s;
+}
+
+/* Arrow nudge inside buttons/links */
+.btn-primary:hover,
+.btn-secondary:hover,
+.case-link:hover {
+    letter-spacing: .25px;
+}
+
+/* ---------- 4. BRAND SYMBOL WIGGLE + GRADIENT SHIFT ---------- */
+.brand:hover .brand-symbol {
+    animation: brandWiggle .6s ease-in-out;
+}
+
+@keyframes brandWiggle {
+
+    0%,
+    100% {
+        transform: rotate(0) scale(1);
+    }
+
+    25% {
+        transform: rotate(-8deg) scale(1.08);
+    }
+
+    50% {
+        transform: rotate(6deg) scale(1.05);
+    }
+
+    75% {
+        transform: rotate(-3deg) scale(1.02);
+    }
+}
+
+.brand-symbol {
+    background-size: 200% 200%;
+    animation: brandShift 8s ease infinite;
+}
+
+@keyframes brandShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* ---------- 5. NAV LINK UNDERLINE SLIDE ---------- */
+.nav-links a {
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--violet), var(--pink));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .35s cubic-bezier(.19, 1, .22, 1);
+    border-radius: 2px;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* ---------- 6. STAT CARD — TILT + COUNT GLOW ---------- */
+.stat {
+    will-change: transform;
+    transform-style: preserve-3d;
+}
+
+.stat:hover {
+    transform: translateY(-6px) rotate(-.6deg) scale(1.015);
+    box-shadow: 0 24px 55px rgba(15, 23, 42, .14);
+}
+
+.stat:hover .stat-num {
+    animation: numGlow 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes numGlow {
+    from {
+        filter: drop-shadow(0 0 0 transparent);
+    }
+
+    to {
+        filter: drop-shadow(0 0 8px currentColor);
+    }
+}
+
+/* Sweeping top bar on hover */
+.stat::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, .25) 50%, transparent 60%);
+    transform: translateX(-100%);
+    transition: transform .8s cubic-bezier(.19, 1, .22, 1);
+    pointer-events: none;
+}
+
+.stat:hover::after {
+    transform: translateX(100%);
+}
+
+/* ---------- 7. TIMELINE RAIL DOT POP ---------- */
+.rail-item::before {
+    transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),
+        border-color .3s, background .3s, box-shadow .3s;
+}
+
+.rail-item:hover::before {
+    transform: scale(1.35);
+    border-color: var(--violet);
+    background: var(--violet);
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, .15);
+}
+
+/* Rail item slide-on-hover */
+.rail-item {
+    transition: color .25s, padding-left .3s cubic-bezier(.19, 1, .22, 1);
+}
+
+.rail-item:hover {
+    padding-left: 44px;
+}
+
+/* ---------- 8. CASE STUDY — BORDER GRADIENT SWEEP ---------- */
+.case-study {
+    position: relative;
+    transition: box-shadow .3s ease, transform .3s ease, border-color .3s ease;
+}
+
+.case-study::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 21px;
+    padding: 1px;
+    background: linear-gradient(120deg, transparent, var(--violet), var(--blue), var(--pink), transparent);
+    background-size: 300% 300%;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity .4s ease;
+    pointer-events: none;
+    animation: borderFlow 6s linear infinite;
+}
+
+.case-study:hover::before {
+    opacity: 1;
+}
+
+@keyframes borderFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 300% 50%;
+    }
+}
+
+/* Case visual internal glow */
+.case-study:hover .case-visual {
+    box-shadow: inset 0 0 60px rgba(124, 58, 237, .18),
+        0 12px 40px rgba(37, 99, 235, .18);
+}
+
+/* Project image drift */
+.case-visual img {
+    transition: transform .6s cubic-bezier(.19, 1, .22, 1), filter .4s ease;
+}
+
+.case-study:hover .case-visual img {
+    transform: scale(1.06) translateY(-3px);
+    filter: brightness(1.08) saturate(1.1);
+}
+
+/* Index number flicker */
+.case-study:hover .case-index {
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0 0 10px rgba(124, 58, 237, .9), 0 0 20px rgba(37, 99, 235, .6);
+    transition: color .3s, text-shadow .3s;
+}
+
+/* Phase badge pulse */
+.case-study:hover .case-phase {
+    animation: phasePulse 1.6s ease-in-out infinite;
+}
+
+@keyframes phasePulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(124, 58, 237, .3);
+    }
+
+    50% {
+        box-shadow: 0 0 0 6px rgba(124, 58, 237, 0);
+    }
+}
+
+/* Case title underline reveal */
+.case-title {
+    position: relative;
+    display: inline-block;
+}
+
+.case-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--blue), var(--violet), var(--pink));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .5s cubic-bezier(.19, 1, .22, 1);
+    border-radius: 2px;
+}
+
+.case-study:hover .case-title::after {
+    transform: scaleX(1);
+}
+
+/* Case link icon bounce */
+.case-link:hover {
+    animation: linkPop .45s ease;
+}
+
+@keyframes linkPop {
+    0% {
+        transform: translateY(-2px) scale(1);
+    }
+
+    50% {
+        transform: translateY(-3px) scale(1.05);
+    }
+
+    100% {
+        transform: translateY(-3px) scale(1.02);
+    }
+}
+
+/* Tags hover lift */
+.tags span {
+    transition: transform .25s ease, border-color .25s, background .25s, color .25s;
+}
+
+.tags span:hover {
+    transform: translateY(-3px);
+    border-color: var(--violet);
+    background: var(--phase-bg);
+    color: var(--violet);
+}
+
+/* ---------- 9. SKILL ROW — SHIMMER + LEFT BAR ---------- */
+.skill-row {
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-row::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--blue), var(--violet), var(--pink));
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform .45s cubic-bezier(.19, 1, .22, 1);
+}
+
+.skill-row:hover::before {
+    transform: scaleY(1);
+}
+
+.skill-row::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 40%, rgba(124, 58, 237, .06) 50%, transparent 60%);
+    transform: translateX(-100%);
+    transition: transform .8s cubic-bezier(.19, 1, .22, 1);
+    pointer-events: none;
+}
+
+.skill-row:hover::after {
+    transform: translateX(100%);
+}
+
+.skill-row:hover .skill-name {
+    color: var(--violet);
+    transition: color .3s;
+}
+
+/* ---------- 10. REFLECTION QUOTE MARK FLOAT ---------- */
+.reflection {
+    overflow: hidden;
+}
+
+.reflection::before {
+    content: "\201C";
+    position: absolute;
+    top: -18px;
+    left: 12px;
+    font-family: "Space Grotesk", serif;
+    font-size: 130px;
+    line-height: 1;
+    color: var(--violet);
+    opacity: .08;
+    pointer-events: none;
+    animation: quoteFloat 6s ease-in-out infinite;
+}
+
+@keyframes quoteFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(-4deg);
+    }
+}
+
+.reflection em {
+    position: relative;
+    transition: color .3s, text-shadow .3s;
+}
+
+.reflection em:hover {
+    text-shadow: 0 0 12px rgba(124, 58, 237, .5);
+}
+
+/* ---------- 11. LOGO ART — FLOAT + GLOW ---------- */
+.logo-art {
+    animation: logoFloat 7s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(-.4deg);
+    }
+}
+
+.logo-art:hover {
+    animation-play-state: paused;
+    box-shadow: 0 30px 70px rgba(124, 58, 237, .22),
+        0 0 0 1px rgba(124, 58, 237, .15);
+    transition: box-shadow .4s ease;
+}
+
+/* ---------- 12. COMPANY LOGO — GLARE + BOUNCE ---------- */
+.company-logo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, .55) 50%, transparent 60%);
+    transform: translateX(-110%);
+    transition: transform .9s cubic-bezier(.19, 1, .22, 1);
+    pointer-events: none;
+}
+
+.company-logo:hover::after {
+    transform: translateX(110%);
+}
+
+.company-logo:hover img {
+    animation: logoBounce .7s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+@keyframes logoBounce {
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.06) rotate(-1.5deg);
+    }
+
+    70% {
+        transform: scale(.98) rotate(1deg);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ---------- 13. THEME TOGGLE — SPIN + RIPPLE ---------- */
+.theme-toggle:active {
+    transform: scale(.92);
+}
+
+.theme-toggle:hover svg {
+    animation: toggleSpin .6s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+@keyframes toggleSpin {
+    0% {
+        transform: rotate(0) scale(1);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.2);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+/* ---------- 14. HERO COPY SUBTLE REVEAL ---------- */
+.hero-copy {
+    animation: copyFadeIn 1s ease .35s both;
+}
+
+.hero-actions {
+    animation: copyFadeIn 1s ease .55s both;
+}
+
+.eyebrow {
+    animation: copyFadeIn 1s ease .1s both;
+}
+
+.hero h1 {
+    animation: copyFadeIn 1s ease .2s both;
+}
+
+@keyframes copyFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stat strip staggered entrance */
+.stat:nth-child(1) {
+    animation: copyFadeIn .8s ease .7s both;
+}
+
+.stat:nth-child(2) {
+    animation: copyFadeIn .8s ease .8s both;
+}
+
+.stat:nth-child(3) {
+    animation: copyFadeIn .8s ease .9s both;
+}
+
+.stat:nth-child(4) {
+    animation: copyFadeIn .8s ease 1s both;
+}
+
+/* ---------- 15. SCROLL CUE PULSE ---------- */
+.scroll-cue {
+    animation: cueFade 2.5s ease-in-out infinite;
+}
+
+@keyframes cueFade {
+
+    0%,
+    100% {
+        opacity: .55;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* ---------- 16. FOOTER CTA LINKS ---------- */
+.footer-cta .btn {
+    transition: transform .3s cubic-bezier(.34, 1.56, .64, 1),
+        box-shadow .3s, border-color .3s, color .3s;
+}
+
+/* ---------- 17. LINK ARROW AUTO-NUDGE ON HOVER ---------- */
+a[href]:not(.brand):hover {
+    text-decoration: none;
+}
+
+/* ---------- 18. CURSOR SPARKLE ON CASE VISUAL ---------- */
+.case-visual {
+    transition: box-shadow .4s ease, border-color .4s ease;
+}
+
+.case-study:hover .case-visual {
+    border-color: rgba(124, 58, 237, .35);
+}
+
+/* ---------- 19. META VALUE FADE-UP ON PANEL HOVER ---------- */
+.internship-panel:hover .meta-value {
+    color: var(--ink);
+    transition: color .35s;
+}
+
+.internship-panel:hover .meta-label {
+    animation: labelBlink 1.5s ease-in-out infinite;
+}
+
+@keyframes labelBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .65;
+    }
+}
+
+/* ---------- 20. SECTION HEAD POP-IN ---------- */
+.section-head {
+    animation: copyFadeIn .9s ease both;
+}
+
+/* Respect reduced motion for all new animations */
+@media (prefers-reduced-motion: reduce) {
+
+    .section-kicker,
+    .eyebrow::before,
+    .btn-primary::after,
+    .brand-symbol,
+    .stat:hover .stat-num,
+    .case-study::before,
+    .reflection::before,
+    .logo-art,
+    .hero-copy,
+    .hero-actions,
+    .eyebrow,
+    .hero h1,
+    .stat,
+    .scroll-cue,
+    .section-head,
+    .nav-links a::after,
+    .rail-item,
+    .rail-item::before {
+        animation: none !important;
+        transition-duration: .01ms !important;
+    }
+
+    .stat:hover,
+    .case-study:hover,
+    .skill-row:hover,
+    .company-logo:hover,
+    .logo-art:hover {
+        transform: none !important;
+    }
+}
