@@ -1735,30 +1735,59 @@ footer .gold-line {
 .reflection em:hover {
     text-shadow: 0 0 12px rgba(124, 58, 237, .5);
 }
-
-/* ---------- 11. LOGO ART — FLOAT + GLOW ---------- */
-.logo-art {
+/* ---------- 11. LOGO ART — FLOAT + GLOW (on <img> to avoid transform conflict) ---------- */
+.logo-art img {
     animation: logoFloat 7s ease-in-out infinite;
+    will-change: transform;
 }
 
 @keyframes logoFloat {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0);
+    0%, 100% {
+        transform: translateY(var(--parallax-y, 0px)) rotate(0deg) scale(1);
     }
-
     50% {
-        transform: translateY(-8px) rotate(-.4deg);
+        transform: translateY(calc(var(--parallax-y, 0px) - 8px)) rotate(-.6deg) scale(1.01);
     }
+}
+/* Glow + lift on the container (JS owns its transform — don't animate it here) */
+.logo-art {
+    transition: box-shadow .5s ease, border-color .4s ease, filter .4s ease;
 }
 
 .logo-art:hover {
-    animation-play-state: paused;
-    box-shadow: 0 30px 70px rgba(124, 58, 237, .22),
-        0 0 0 1px rgba(124, 58, 237, .15);
-    transition: box-shadow .4s ease;
+    box-shadow: 0 30px 70px rgba(124,58,237,.22),
+                0 0 0 1px rgba(124,58,237,.18);
+    border-color: var(--violet);
 }
+
+.logo-art:hover img {
+    animation-play-state: paused;
+    filter: brightness(1.06) saturate(1.08);
+    transition: filter .35s ease;
+}
+
+/* Soft pulsing glow behind the card */
+.logo-art::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 28px;
+    background: radial-gradient(circle at 50% 50%,
+                rgba(124,58,237,.20), transparent 70%);
+    opacity: 0;
+    transition: opacity .5s ease;
+    z-index: -1;
+    pointer-events: none;
+    animation: logoGlowPulse 4s ease-in-out infinite;
+}
+
+@keyframes logoGlowPulse {
+    0%, 100% { opacity: .25; transform: scale(.98); }
+    50%      { opacity: .55; transform: scale(1.03); }
+}
+
+.logo-art:hover::before { opacity: .8; }
+
 
 /* ---------- 12. COMPANY LOGO — GLARE + BOUNCE ---------- */
 .company-logo::after {

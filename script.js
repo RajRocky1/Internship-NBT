@@ -185,16 +185,20 @@ document.addEventListener("DOMContentLoaded", () => {
     document.head.appendChild(styleTag);
   }
 
-  // --- 6. Parallax drift for hero blob art ---
+   // --- 6. Parallax drift for hero logo art (CSS variable based, non-destructive) ---
   const logoArt = document.querySelector(".logo-art");
-  if (logoArt) {
+  const logoImg = logoArt ? logoArt.querySelector("img") : null;
+  if (logoArt && logoImg) {
     let ticking = false;
     window.addEventListener("scroll", () => {
       if (!ticking) {
         requestAnimationFrame(() => {
           const y = window.scrollY;
           if (y < 700) {
-            logoArt.style.transform = `translateY(${y * 0.06}px) rotate(${y * 0.004}deg)`;
+            // Use a CSS custom property so it composes with the float animation
+            logoImg.style.setProperty("--parallax-y", `${y * 0.05}px`);
+          } else {
+            logoImg.style.setProperty("--parallax-y", "0px");
           }
           ticking = false;
         });
